@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog</title>
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	<% end %>
+	  <% #link_to "My Profile", user_root_path%>
+	  <nav class="navbar navbar-default navbar-static-top" role="navigation">
+	  	<ul class="nav">
+        <% if current_user %> 
+          <li><%= link_to('Sign Out', destroy_user_session_path, :method=>'delete') %></li>
+    	  <% else %>
+          <li><%= link_to('Sign In', new_user_session_path, :method=>'get') %></li>
+    	    <li><%= link_to('Sign Up', new_user_registration_path, :method=>'get') %></li>
+     	  <% end %>
+      </ul>
+     </nav>	  
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	<%= yield %>
+
+</body>
+</html>
+
+

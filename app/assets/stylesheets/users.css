@@ -1,0 +1,23 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.loginbox {
+	width: 195px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.nav {
+	height: 48px;
+}
+
+.nav li {
+	display: inline-block;
+}
+
+.nav li a {
+	padding: 16px !important;
+	text-decoration: none;
+}
