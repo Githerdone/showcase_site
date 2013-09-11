@@ -6,14 +6,5 @@ class UsersController < ApplicationController
 
 
 
-
-
-
-
-
-
-	
-  
-
 	
 end

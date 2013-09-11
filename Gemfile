@@ -16,6 +16,8 @@ gem 'cancan'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
+gem 'font-awesome-rails'
+
 # Use twitter bootstrap CSS sheets
 # gem 'twitter-bootstrap-rails'
 
@@ -24,6 +26,9 @@ gem 'uglifier', '>= 1.3.0'
 
 # trying out the github Flat-Ui gem
 # gem 'flatui-rails'
+
+# trying to use alertify-rails gem
+gem 'alertify-rails'
 
 # Use CoffeeScript for .js.coffee assets and views
 # gem 'coffee-rails', '~> 4.0.0'
