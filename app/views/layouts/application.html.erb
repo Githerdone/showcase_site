@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Blog</title>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<%= csrf_meta_tags %>
-</head>
-
-
-
-<body data-twttr-rendered="true">
-	<aside id='default-popup' class='avgrund-popup undefined'>
-	<h2>hello there</h2>
-	<button id='close_btn'>Close</button>
-</aside>
-  
-  <div id='containter' class='avgrund-contents'>
-	<% flash.each do |name, msg| %>
-	  <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
-	<% end %>
+	<head>
+		<title>Blog</title>
+		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+		<%= csrf_meta_tags %>
+	</head>
+	  
+	<body>
+	  <% flash.each do |name, msg| %>
+	    <%= content_tag :div, msg, :id => "flash_#{name}" if msg.is_a?(String) %>
+	  <% end %>
 	  <% #link_to "My Profile", user_root_path%>
 	  <nav class="navbar navbar-default navbar-static-top" role="navigation">
 	  	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
@@ -27,16 +19,48 @@
 	  	<% end %>
 	  	<ul class="nav">
         <% if current_user %> 
-          <li><%= link_to('Sign Out', destroy_user_session_path, :method=>'delete') %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
     	  <% else %>
-          <li><%= link_to('Sign In', new_user_session_path, :method=>'get') %></li>
-    	    <li><%= link_to('Sign Up', new_user_registration_path, :method=>'get') %></li>
+          <li><%= link_to 'Sign In', '#signin', data: {toggle: "modal"}, id: 'sign_inLink' %></li>
+    	    <li><%= link_to 'Sign Up', '#signupModal', data: {toggle: "modal"}, id: 'sign_upLink' %></li>
      	  <% end %>
       </ul>
-     </nav>	  
-	<%= yield %>
-</body>
+    </nav>
+    <div id='main_container'>
 
+	  <%= yield %>
+
+    <%= render partial: 'partials/sign_up' %>
+
+    
+
+    <div id="signin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+        <h3 id="myModalLabel">Sign In</h3>
+      </div>
+
+      <div class="modal-body">
+        <%= form_for(resource, :as => resource_name, 
+                             :url => session_path(resource_name),
+                             :html => {:id => "sign_in_user"},
+                             :format => :json,
+                             :remote => :true) do |f| %>
+          <div>
+            <%= f.label :email %><br />
+            <%= f.email_field :email, :autofocus => true %>
+          </div>
+          <div id='sign_in_password'><%= f.label :password %><br />
+            <%= f.password_field :password %><br>
+          </div>
+          <%= render "devise/shared/links" %>
+          <div class="modal-footer">
+            <button type='submit' class="btn btn-primary">Sign In</button>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    </div>
+	</body>
 </html>
 
 

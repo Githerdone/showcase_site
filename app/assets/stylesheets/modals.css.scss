@@ -1,0 +1,43 @@
+.authorization {
+	width: 260px;
+	height: 351px;
+	background-color: white;
+	margin-right: auto;
+  margin-left: auto;
+  margin-top: 100px;
+  border-radius: 8px;
+}
+
+.modal-body {
+	padding-top: 10px;
+}
+
+.authorization button {
+	width: 220px;
+}
+
+.authorization input {
+	width: 220px;
+	margin-bottom: 5px;
+}
+
+#main_contianer {
+  width: 90%;
+  position: relative;
+  left: 2%;
+  min-width: 900px;
+}
+
+.modal-header {
+  border-bottom: 1px solid #1abc9c !important;
+  padding-bottom: 6px;
+}
+
+.modal-footer {
+	padding: 10px 0;
+	margin-top: 3px;
+}
+
+input:webkit-autofill {
+	background-color: #1abc9c !important;
+	}

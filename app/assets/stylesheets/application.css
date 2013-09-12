@@ -13,8 +13,3 @@
  *= require_tree ../../../vendor/assets/stylesheets/.
  *= require_tree .
  */
-
-
- html, body {
-	height: 100% !important;
-}

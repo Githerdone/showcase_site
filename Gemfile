@@ -13,8 +13,11 @@ gem 'pg', '0.16.0'
 gem 'devise'
 gem 'cancan'
 
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
+group :assets do
+  # Use SCSS for stylesheets
+  gem 'sass-rails'
+  gem 'compass-rails'
+end
 
 gem 'font-awesome-rails'
 
