@@ -1,6 +1,6 @@
 .authorization {
-	width: 260px;
-	height: 351px;
+	width: 285px;
+	height: 369px;
 	background-color: white;
 	margin-right: auto;
   margin-left: auto;
@@ -13,7 +13,15 @@
 }
 
 .authorization button {
-	width: 220px;
+	width: 246px;
+}
+
+.no_submit {
+	background-color: rgba(120,0,0,.4) !important;
+}
+
+.ready_submit {
+	background-color: #1abc9c;
 }
 
 .authorization input {
@@ -41,3 +49,32 @@
 input:webkit-autofill {
 	background-color: #1abc9c !important;
 	}
+
+	#button_close {
+	font-size: 13px !important;
+	padding: 0 !important;
+	width: 48px !important;
+	height: 22px !important;
+	float: right;
+	position: relative;
+	top: -30px;
+}
+
+.input_incorrect {
+  border-color: rgba(120,0,0,.4) !important;
+}
+
+.input_correct {
+  border-color: #00CC66 !important;
+}
+
+.tooltip_box {
+	width: 17px !important;
+	height: 25px !important;
+	padding: 0 !important;
+	float: right;
+}
+
+.tooltip {
+	left: 39px !important;
+}

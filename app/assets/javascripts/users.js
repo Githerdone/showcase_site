@@ -25,21 +25,15 @@ $(document).ready(function() {
 //   $("body").toggleClass("dialogIsOpen");
 // });
 
- $('#sign_upLink').on('click', function(){
-    $('input').first().focus();
-    $("#signupModal").modal('show');
-  });
+ 
 
- $('#signupModal').on('ajax:success', function(e, data, status, xhr) {
- 	console.log(data)
- 	console.log(xhr)
- 	console.log(status)
-   $('#signupModal').modal('hide');
- });
+ // var json = $.parseJSON( test.responseText );
+// var notice = test.getResponseHeader("X-Flash-Notice");
 
-  $('#sign_inLink').on('click', function(){
-    // $('#name_field').focus();
-    $("#signinModal").modal('show'); 
-  });
+
+// console.log(json)
+// console.log(test)
+
+ 
 
 });

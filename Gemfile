@@ -30,6 +30,9 @@ gem 'uglifier', '>= 1.3.0'
 # trying out the github Flat-Ui gem
 # gem 'flatui-rails'
 
+# add unobtrusive flash to help with ajax messaging
+# gem 'unobtrusive_flash'
+
 # trying to use alertify-rails gem
 gem 'alertify-rails'
 
