@@ -2,6 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {  
+min-width:900px;
+
+
+ }
+
+
 .loginbox {
 	width: 195px;
   margin-right: auto;
@@ -15,10 +22,14 @@
   padding-left: 20px;
 }
 
+.header_user {
+	display: inline-block !important;
+}
+
 .active_user {
 	display: inline-block !important;
 	position: relative;
-	top: -3px;
+	top: -4px;
 	font-size: 14px;
 }
 
@@ -31,17 +42,18 @@
   color: #1A8BBC;
 }
 
-ul {
+.nav_links {
+  margin-top: 15px;
 	display: inline-block !important;
 	float: right;
 	margin-right: 30px !important;
 }
 
-.nav li {
+.nav_links li {
 	display: inline-block;
 }
 
-.nav li a {
+.nav_links li a {
 	padding: 15.5px !important;
 	text-decoration: none;
 }

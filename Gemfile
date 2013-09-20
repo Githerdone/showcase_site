@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 
 # Use sqlite3 as the database for Active Record
-# gem 'sqlite3'
+gem 'sqlite3'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '0.16.0'
+# gem 'pg'
 
 # Use devise and cancan for authentication
 gem 'devise'

@@ -1,0 +1,13 @@
+.test_div {
+	position: relative;
+	left: 100px;
+	width: 200px;
+	height: 300px;
+	border-radius: 6px;
+	border: solid 1px #1abc9c;
+	display: inline-block;
+	margin-right: 10px;
+}
+
+
+

@@ -1,19 +1,33 @@
 .authorization {
-	width: 285px;
-	height: 369px;
 	background-color: white;
 	margin-right: auto;
   margin-left: auto;
   margin-top: 100px;
   border-radius: 8px;
+	width: 285px;
+
 }
 
-.modal-body {
-	padding-top: 10px;
+.authorization a {
+	text-decoration: none;
+	text-align: center;
+}
+
+#signinModal {
+	height: 262px;
+}
+
+#signupModal {
+	width: 285px;
+	height: 369px;
 }
 
 .authorization button {
 	width: 246px;
+}
+
+.modal-body {
+	padding-top: 10px;
 }
 
 .no_submit {
@@ -44,13 +58,14 @@
 .modal-footer {
 	padding: 10px 0;
 	margin-top: 3px;
+	height: 0;
 }
 
 input:webkit-autofill {
 	background-color: #1abc9c !important;
-	}
+}
 
-	#button_close {
+.button_close {
 	font-size: 13px !important;
 	padding: 0 !important;
 	width: 48px !important;
@@ -65,7 +80,7 @@ input:webkit-autofill {
 }
 
 .input_correct {
-  border-color: #00CC66 !important;
+  border-color: #1abc9c !important;
 }
 
 .tooltip_box {
@@ -77,4 +92,24 @@ input:webkit-autofill {
 
 .tooltip {
 	left: 39px !important;
+}
+
+.modal-backdrop.in {
+  opacity: 0.8 !important;
+}
+
+.reg_errors {
+	width: 269px;
+	position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  top: 156px;
+	padding: 15px;
+	color: red;
+	border: solid 1px red;
+	border-radius: 8px;
+}
+
+.reg_errors p {
+	font-size: 12px;
 }

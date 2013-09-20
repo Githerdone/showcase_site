@@ -1,5 +1,5 @@
 MDoffice::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'registrations' }, path_name: {:sign_in => "login", :sign_out => "logout"}, :path => "d"
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }, path_name: {:sign_in => "login", :sign_out => "logout"}, :path => "user"
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

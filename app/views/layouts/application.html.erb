@@ -11,20 +11,17 @@
 	 
 	  <nav class="navbar navbar-default navbar-static-top" role="navigation">
 	  	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
+	  	<div class='header_user'></div>
 	  	<% if current_user %>
-	  	  <div class='active_user'>&nbsp; &nbsp; — &nbsp; Welcome... <span><b><%= current_user.username %></b></span></div>
+	  	  <%= render partial: 'partials/active_user' %>
 	  	<% end %>
-	  	<ul class="nav">
+	  	<ul class='nav_links'>
         <% if current_user %>
-          <li><%= link_to 'Blog', root_path, method: 'get' %></li>
-          <li><%= link_to 'Sign Out', destroy_user_session_path, :method=>'delete' %></li>
+          <%= render partial: 'partials/signout_nav' %>
     	  <% else %>
-    	    <li><%= link_to 'hello', '#', title: 'what is it' %></li>
-
-          <li><%= link_to 'Sign In', '#signinModal', data: {toggle: "modal"}, id: 'sign_inLink' %></li>
-    	    <li><%= link_to 'Sign Up', '#signupModal', data: {toggle: "modal"}, id: 'sign_upLink' %></li>
+          <%= render partial: 'partials/signin_nav' %>
      	  <% end %>
-      </ul>
+     	</ul>
     </nav>
     <div id='main_container'>
 

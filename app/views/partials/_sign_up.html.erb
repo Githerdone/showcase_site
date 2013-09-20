@@ -1,6 +1,6 @@
 <div id="signupModal" class="modal fade authorization" tabindex="-1" style="display: none;">
   <div class="modal-header">
-    <h3 id="myModalLabel">Sign up</h3><button id='button_close' data-dismiss='modal' class="btn btn-xs">Close</button>
+    <h3 id="myModalLabel">Sign up</h3><button data-dismiss='modal' class="button_close btn btn-xs">Close</button>
   </div>
 
   <div class="modal-body">
@@ -12,26 +12,26 @@
       <%= devise_error_messages! %>                 
       <div><%= f.label :username %>
         <br />
-        <%= f.text_field :username, autofocus: true, class: 'input_incorrect', data: { label: 'Username' } %><button type='button' class='tooltip_box btn btn-xs' data-label='Username'>?</button>
+        <%= f.text_field :username, autofocus: true, class: 'input_incorrect', data: { label: 'username' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Username must:- begin with a letter - end with a letter - contiain at least one letter inbetween beginning and end - can contain underscore or dash, but only between two letters.'>?</button>
       </div>
 
       <div><%= f.label :email %>
         <br />
-        <%= f.email_field :email, class: 'input_incorrect', data: { label: 'Email' } %>
-        <button type='button' class='tooltip_box btn btn-xs' data-label='Email'>?</button>
+        <%= f.email_field :email, class: 'input_incorrect', data: { label: 'email' } %>
+        <button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Minimum format a@a.co'>?</button>
       </div>
 
       <div id='password'><%= f.label :password %>
         <br />
-        <%= f.password_field :password, class: 'input_incorrect', data: { label: 'Password' } %><button type='button' class='tooltip_box btn btn-xs' data-label='Password'>?</button>
+        <%= f.password_field :password, class: 'input_incorrect', data: { label: 'password' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Minimum length of 8 characters example: Navy#96!'>?</button>
       </div>
 
       <div id='password_confirmation'><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, class: 'input_incorrect', data: { label: 'Confirmation'} %><button type='button' class='tooltip_box btn btn-xs' data-label='Confirmation'>?</button>
+        <%= f.password_field :password_confirmation, class: 'input_incorrect', data: { label: 'confirmation'} %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Must match the password'>?</button>
       </div><br />  
 
       <div class="modal-footer">
-        <button id='button_submit' type='submit' class="btn btn-primary">Sign Up</button>
+        <button type='submit' class="button_submit btn btn-primary">Sign Up</button>
       </div>
     <% end %>
   </div>

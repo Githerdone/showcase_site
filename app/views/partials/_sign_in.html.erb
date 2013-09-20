@@ -1,6 +1,6 @@
 <div id="signinModal" class="modal fade authorization" tabindex="-1" style="display: none;">
   <div class="modal-header">
-    <h3 id="myModalLabel">Sign in</h3>
+    <h3 id="myModalLabel">Sign in</h3><button type='button' data-dismiss='modal' class="button_close btn btn-xs">Close</button>
   </div>
 
   <div class="modal-body">
@@ -10,18 +10,18 @@
                            :format => :json,
                            :remote => :true) do |f| %>
       <%= devise_error_messages! %>                 
-      <div><%= f.label :login %>
+      <div><%= f.label :login, "Username -or- Email" %>
         <br />
-        <%= f.text_field :login, autofocus: true %>
+        <%= f.text_field :login, autofocus: true, class: 'input_incorrect', data: { label: 'login' }  %>
       </div>
 
       <div><%= f.label :password %>
         <br />
-        <%= f.password_field :password %>
+        <%= f.password_field :password, class: 'input_incorrect', data: { label: 'password' }  %>
       </div>
       <%= render "devise/shared/links" %>
       <div class="modal-footer">
-        <button type='submit' class="btn btn-primary">Sign Up</button>
+        <button type='submit' class="button_submit btn btn-primary">Sign Up</button>
       </div>
     <% end %>
   </div>

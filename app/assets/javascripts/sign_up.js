@@ -1,232 +1,169 @@
 $(document).ready(function() {
 
-	$('#sign_upLink').on('click', function(){
-		$('#button_submit').attr('disabled','disabled')
-		$('#button_submit').addClass('no_submit')
-		$('#button_submit').text('Not ready to Submit')
-		$("#signupModal").modal('show');
-		modal_form = new Form();
-
+	$('.sign_link').on('click', function(){
+		var modal_type = $(this).data('label');
+		prepare_modal_show(modal_type);
+		modal_form = new ModalForm(modal_type);
 	});
 
-	// var tooltip_popup = new window[$(this).data('label')];
-	// 	$(this).tooltip({ title: tooltip_popup.body, placement: tooltip_popup.placement });
-	// 	$(this).tooltip('disable');
-  $('button').on('click', function(){
-  	console.log(this)
-  	console.log($('.tooltip').length)
-    
-	    var tooltip_box = new window[$(this).data('label')];
-		  $(this).tooltip({ title: tooltip_box.body, 
-			                  placement: tooltip_box.placement,
-			                  trigger: 'manual' });
-		if($('.tooltip').length >= 1){
-			$('.tooltip_box').tooltip('hide')
-		}else{
-      $(this).tooltip('show')
-		}
+	$('.tooltip_box').tooltip({ placement: 'bottom', trigger: 'hover'});
 
-		$('.tooltip').on('click', function(){
-			$('.tooltip_box').tooltip('hide')
-		});
-		// $('.tooltip_box').not(this).tooltip('hide');
-    // $('.tooltip_box').on('click', function(){
-    // 	$('.tooltip_box').tooltip('hide');
-    // })
-
-		// $(this).siblings('input').tooltip('hide');
-
-
-  });
-
-    
 	$('input').keyup(function(){
+		  prepare_modal_submit();
 
-		var element = $(this).data('label');
-		var value = $(this).val();
-	  passwords_match($('#password').find('input'), $('#password_confirmation').find('input'));
 
-		if(validate_input(modal_form[element], value)){
-      $(this).attr('class', 'input_correct');
-      if($('.tooltip').length >= 1){
-      	$('.tooltip_box').tooltip('hide');
-      }    
-   
+		if(modal_form[$(this).data('label')].test($(this).val())){
+			$(this).attr('class', 'input_correct');   
 		}else{
 			$(this).attr('class', 'input_incorrect');
 		}
 
-		var $inputs = $('#sign_up_user :input').not(':button,:hidden');
-    var values = {}
-    console.log($inputs)
-    $inputs.each(function(){
-    	values[$(this).data('label')] = $(this).val();
-    });
-    if(validate_form(modal_form, values)){
-    	$('#button_submit').removeAttr('disabled');
- 			$('#button_submit').removeClass('no_submit').addClass('ready_submit');
-			$('#button_submit').text('Ready to Submit');
-    }else{
-    	$('#button_submit').attr('disabled','disabled');
- 			$('#button_submit').addClass('no_submit');
-		  $('#button_submit').text('Not ready to Submit');
+		if(modal_form.type == '#signupModal'){
+			passwords_match($('#password').find('input'), $('#password_confirmation').find('input'));
     }
-    
 
-			// if(message.valid.test($(this).val())){
-			// 	console.log($(this).val())
-			// 	$(this).tooltip('hide');
-			// 	$(this).tooltip('disable');
-			//   if(passwords_match($('#password').find('input').val(), $('#password_confirmation').find('input').val())){
-		      
-          
-
-
-		 //      console.log(values)
-		 //      console.log()
-		      
-		 //      console.log(modal_form)
-			
-			// 	} 
-			// }else{
-			// 	$(this).tooltip('enable');
-			// 	$(this).tooltip('show');
+		var $inputs = $(modal_form.type + ' :input').not(':button,:hidden');
+		var values = {};
+		$inputs.each(function(){
+			values[$(this).data('label')] = $(this).val();
+		});
+		if(validate_form(modal_form, values)){
+		  prepare_modal_submit();
+		}else{
+			// prepare_modal_noSubmit();
+		}
 	});
-	
 
 	$('#signupModal').on('ajax:success', function(e, data, status, xhr) {
+		if(data.success == true){
+			$(this).modal('hide');
+			$('.header_user').html(data.html_user);
+			$('.nav_links').empty();
+			$('.nav_links').append().html(data.html_nav);
+		}else{
+			$('.modal-backdrop').append().html(data.html_error);
+			for(var key in data.errors){
+				var title = key.replace(/_/g, " ")
+				$('#error_heading').append('<h6><b>'+title+':</b></h6>')
+				var obj =	data.errors[key];
+				for(var prop in obj){
+					if(obj.hasOwnProperty(prop)){
+						$('#error_heading').append('<p>- '+obj+'</p>')
+					}
+				}
+			}
+			if($('.reg_errors').length == 1){
+				$('.reg_errors').animate({
+					left: '+=271'
+				});
+		  }
+		}
+	});
 
-		$('#signupModal').modal('hide');
+	$('#signinModal').on('ajax:success', function(e, data, status, xhr) {
+		if(data.success == true){
+			$('#signinModal').modal('hide');
+			$('.header_user').html(data.html_user);
+			$('.nav_links').empty();
+			$('.nav_links').append().html(data.html_nav);
+		}else{
+			$('.modal-backdrop').append().html(data.html_error);
+			for(var key in data.errors){
+				var title = key.replace(/_/g, " ")
+				$('#error_heading').append('<h6><b>'+title+':</b></h6>')
+				var obj =	data.errors[key];
+				for(var prop in obj){
+					if(obj.hasOwnProperty(prop)){
+						$('#error_heading').append('<p>- '+obj+'</p>')
+					}
+				}
+			}
+			if($('.reg_errors').length == 1){
+				$('.reg_errors').animate({
+					left: '+=271'
+				});
+		  }
+		}
 	});
 });
 
-function validate_input(form_element, input){
-  if(form_element.test(input)){
-  	return true
-  }else{
-  	return false
-  }
+function prepare_modal_show(modal_type){
+  $(modal_type).find('form')[0].reset();
+  resetInputs(modal_type);
+  prepare_modal_noSubmit();
+	$(modal_type).modal('show');
+}
+
+function prepare_modal_noSubmit(){
+	$('.button_submit').attr('disabled','disabled');
+	$('.button_submit').addClass('no_submit');
+	$('.button_submit').text('Not ready to Submit');
+}
+
+function prepare_modal_submit(){
+	if($('.reg_errors').length == 1){
+		$('.reg_errors').animate({
+			left: '-=271'
+		}, 800, function(){
+			$('.reg_errors').remove();
+		});
+	}
+	$('.button_submit').removeAttr('disabled');
+	$('.button_submit').removeClass('no_submit').addClass('ready_submit');
+	$('.button_submit').text('Ready to Submit');
+}
+
+function resetInputs(modal_type){
+  $(modal_type).find('form :input').not(':button').attr('class', 'input_incorrect');
 }
 
 function validate_form(form, values){
-	console.log('here I am ')
-	console.log(values)
-	var valid = []
-	var form_validated = []
-	valid.push(form.Username.test(values.Username));
-	valid.push(form.Email.test(values.Email));
-	valid.push(form.Password.test(values.Password));
-	valid.push(form.Confirmation.test(values.Confirmation));
-	valid.push(values.Password == values.Confirmation && values.Password.length >=8 && values.Confirmation.length >=8 )
-	for (var i = 0; i < valid.length; i++) {
-    if(valid[i] == true){
-    	form_validated.push(valid[i])
+	var valid = [];
+  if(form.type == '#signinModal'){
+    valid.push(form.login.test(values.login));
+    valid.push(form.password.test(values.password));
+    if(valid.filter(onlyTrue).length == 2){
+    	return true;
     }
+  }else if(form.type == '#signupModal'){
+  	valid.push(form.username.test(values.username));
+	  valid.push(form.email.test(values.email));
+	  valid.push(form.password.test(values.password));
+	  valid.push(form.confirmation.test(values.confirmation));
+	  valid.push(values.password == values.confirmation && values.password.length >=8 && values.confirmation.length >=8 );
+	  if(valid.filter(onlyTrue).length == 5){
+    	return true;
+    }
+  }else{
+  	return false;
   }
-  console.log(valid)
-  console.log(form_validated.length)
-  console.log(form_validated)
-	if(form_validated.length == 5){
-	  	return true
-	  }else{
-	  	return false
-	  }
 }
 
-function Form(){
-  this.Username = new RegExp(/^[a-z_]{4,}/i);
-  this.Email = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
-  this.Password = new RegExp(/^(?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])\S{8,}$/i);
-  this.Confirmation = new RegExp(/^(?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])\S{8,}$/i);
+function onlyTrue(element){
+	return element == true;
 }
 
-function Username(){
-	this.body = "Minimum length of four letters or more (underscores allowed)";
-	this.placement = 'bottom';
-}
-
-function Email(){
-	this.body = "Minimum format required a@a.co";
-	this.placement = 'bottom';
-}
-
-function Password(){
-	this.body = "Minimum length of 8 characters example: Navy#96!";
-	this.placement = 'bottom';
-}
-
-function Confirmation(){
-	this.body = "Must match the password";
-	this.placement = 'bottom';
+function ModalForm(form_type){
+	this.type = form_type;
+	this.login = new RegExp(/^([a-z]((_?-?)([a-z])(_?-?))+[a-z])$|^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
+	this.username = new RegExp(/^([a-z]((_?-?)([a-z])(_?-?))+[a-z])$/i);
+	this.email = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
+	this.password = new RegExp(/^(?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])\S{8,}$/);
+	this.confirmation = new RegExp(/^(?=.*[^a-zA-Z])(?=.*[a-z])(?=.*[A-Z])\S{8,}$/);
 }
 
 function passwords_match(password, confirmation){
 	if($(password).val() == $(confirmation).val() && $(confirmation).val().length >= 8 ){
 		$(confirmation).attr('class', 'input_correct');
 	}else{
-    $(confirmation).attr('class', 'input_incorrect');
+		$(confirmation).attr('class', 'input_incorrect');
 	}
 }
 
+function removeUnderscore(){
 
+}
 
-
-
-
-
-
-
-
-
-
-function validate_input_data(email, password, verify){
-	var emailRegex = new RegExp(/^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$/i);
-	var passwordlength = password.length >= 6;
-	var verify_password = password == verify
-	return { email: emailRegex.test(email), password: passwordlength, verify: verify_password}
-};
-
-function render_error(item){
-	if (item == 'email'){
-		$("[for=user_email] span").css('color', 'red').text(' - incorrect format');
-	}
-	if (item == 'password'){
-		$("[for=user_password] span").css('color', 'red').text(' - not long enough');
-	}
-	if (item == 'verify'){
-		$("[for=user_password_confirmation] span").css('color', 'red').text(' - does not match');
-	}
-};
-
-function reset_create(){
-	$('#new_user label span').text('');
-	$("#new_user")[0].reset();
-	$('#email').focus();
-};
-
-
-$('#new_user').on('submit', function(e){
-	e.preventDefault();
-
-	var form_input = $(this).serializeArray();
-	var validation = validate_input_data(form_input[2].value, form_input[3].value, form_input[4].value);
-	if (validation.email && validation.password && validation.verify){
-		form_input.pop();
-		console.log(form_input);
-		$.post('/users', form_input).done(function(response){
-		});
-		reset_create();
-		$("#createModal").modal('hide');
-		location.reload();
-	}else{
-		if (!validation.email){
-			render_error('email');
-		}
-		if (!validation.password){
-			render_error('password');
-		}
-		if (!validation.verify){
-			render_error('verify');
-		}
-	}
-});
+String.prototype.capitalize = function() {
+  return this.charAt(0).toUpperCase() + this.slice(1);
+}
