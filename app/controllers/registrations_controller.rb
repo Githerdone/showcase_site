@@ -15,14 +15,16 @@ class RegistrationsController < Devise::RegistrationsController
       end
     else
       clean_up_passwords resource
+      p "here are all the errors" 
+      p resource.errors.messages
       return render json: {success: false, html_error: (render_to_string 'partials/_registration_errors'), errors: resource.errors}
     end
   end
  
-  # # Signs in a user on sign up. You can overwrite this method in your own
-  # # RegistrationsController.
-  # def sign_up(resource_name, resource)
-  #   sign_in(resource_name, resource)
-  # end
+  # Signs in a user on sign up. You can overwrite this method in your own
+  # RegistrationsController.
+  def sign_up(resource_name, resource)
+    sign_in(resource_name, resource)
+  end
  
 end

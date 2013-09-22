@@ -94,11 +94,21 @@ input:webkit-autofill {
 	left: 39px !important;
 }
 
+.tooltip p {
+	text-align: left !important;
+}
+
+.tooltip h6 {
+	text-align: left !important;
+}
+
 .modal-backdrop.in {
   opacity: 0.8 !important;
 }
 
 .reg_errors {
+  overflow: scroll;
+  max-height: 310px;
 	width: 269px;
 	position: relative;
   margin-right: auto;

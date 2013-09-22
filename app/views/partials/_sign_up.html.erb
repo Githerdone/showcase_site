@@ -1,6 +1,6 @@
 <div id="signupModal" class="modal fade authorization" tabindex="-1" style="display: none;">
   <div class="modal-header">
-    <h3 id="myModalLabel">Sign up</h3><button data-dismiss='modal' class="button_close btn btn-xs">Close</button>
+    <h3 id="myModalLabel">Sign up</h3><button type='button' class="button_close btn btn-xs" data-type='signupModal'>Close</button>
   </div>
 
   <div class="modal-body">
@@ -12,22 +12,22 @@
       <%= devise_error_messages! %>                 
       <div><%= f.label :username %>
         <br />
-        <%= f.text_field :username, autofocus: true, class: 'input_incorrect', data: { label: 'username' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Username must:- begin with a letter - end with a letter - contiain at least one letter inbetween beginning and end - can contain underscore or dash, but only between two letters.'>?</button>
+        <%= f.text_field :username, autofocus: true, class: 'input_incorrect', data: { label: 'username' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-placement='bottom' data-original-title='<h6>Username must:</h6><p>- begin with a letter</p><p>- end with a letter</p><p>- have at least three letters</p><p>- can contain underscore or dash, but only between two letters</p>'>?</button>
       </div>
 
       <div><%= f.label :email %>
         <br />
         <%= f.email_field :email, class: 'input_incorrect', data: { label: 'email' } %>
-        <button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Minimum format a@a.co'>?</button>
+        <button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-placement='bottom' data-original-title='<h6>Email must:</h6><p>- be a valid e-mail format</p>'>?</button>
       </div>
 
       <div id='password'><%= f.label :password %>
         <br />
-        <%= f.password_field :password, class: 'input_incorrect', data: { label: 'password' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Minimum length of 8 characters example: Navy#96!'>?</button>
+        <%= f.password_field :password, class: 'input_incorrect', data: { label: 'password' } %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-placement='top' data-original-title='<h6>Password must:</h6><p>- be a minimum length of 8 characters</p><p>- is case sensitive</p><p>- must contain a capital letter</p><p>- must contain a lowercase letter</p><p>- must contain a number</p><p>- must contain a symbol</p>'>?</button>
       </div>
 
       <div id='password_confirmation'><%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, class: 'input_incorrect', data: { label: 'confirmation'} %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-original-title='Must match the password'>?</button>
+        <%= f.password_field :password_confirmation, class: 'input_incorrect', data: { label: 'confirmation'} %><button type='button' class='tooltip_box btn btn-xs' tabindex='-1' data-placement='top' data-original-title='<h6>Password Confirmation must:</h6><p>- must match password exactly'>?</button>
       </div><br />  
 
       <div class="modal-footer">

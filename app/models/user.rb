@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates_presence_of :username
   validates :username, length: { in: 3..20 }
   validates_uniqueness_of :username
-  validates_format_of :useranme, with: /\A([a-z]((_?-?)([a-z])(_?-?))+[a-z])\z/i
+  validates_format_of :username, with: /\A([a-z]((_?-?)([a-z])(_?-?))+[a-z])\z/i
 
   validates_presence_of :email
   validates_uniqueness_of :email
