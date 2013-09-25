@@ -1,18 +1,67 @@
 #showcase_two {
-	width: 100%;
+	width: auto;
+	height: 800px;
 	font-size: 20px;
 	color: #202020;
 	text-align: center;
-	/*padding-top: 118px;*/
+  background-image: url(/assets/office_secret.png);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  padding-top: 56px;
+s	/*padding-top: 118px;*/
 }
 
 #showcase_two i {
   font-size: 50px;
 }
 
-.secret_size {
-	width: 100%;
-	height: auto;
+#side_menu {
+  position: relative;
+  height: 400px;
+  width: 190px;
+  border-radius: 6px;
+  left: -167px;
+   top: 0;
+  background: rgba(54, 53, 53, 0.57);
+  border: solid 2px black;
+}
+
+#side_menu div {
 	position: relative;
-	z-index: -1;
+	left: -20px;
+	margin: 5px;
+	width: 180px;
+	height: 50px;
+  border: solid 1px black;
+	border-radius: 6px;
+	padding-top: 5px;
+	padding-left: 50px; 
+	background-color: yellow;
+}
+
+#side_menu h6 {
+	margin: 2px;
+	text-align: left;
+}
+
+#side_menu p {
+	font-size: 12px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#action_div {
+
+
+ border-radius: 6px;
+	width: 0;
+	height: 0;
+	position: relative;
+/*	left: 44%;
+	top: -44%;*/
+	left: 1%;
+	top: -53%;
+	border-radius: solid 1px yellow;
+	background-color: rgba(54, 53, 53, 0.57);
 }
