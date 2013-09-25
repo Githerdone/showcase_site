@@ -19,13 +19,14 @@ group :assets do
   gem 'compass-rails'
 end
 
-gem 'font-awesome-rails'
-
 # Use twitter bootstrap CSS sheets
 # gem 'twitter-bootstrap-rails'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
+# Use Font-Awesome
+gem 'font-awesome-rails'
 
 # trying out the github Flat-Ui gem
 # gem 'flatui-rails'

@@ -2,12 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {  
-min-width:900px;
 
+html, body {
+	height: 3000px;
+	min-width:1000px;
 
- }
+}
+#main_container {
+	width: 90%;
+	height: 100%;
+	position: relative;
+	left: 5%;
+}
 
+body {
+	top: 0;
+	position: relative;
+}
 
 .loginbox {
 	width: 195px;
@@ -35,7 +46,7 @@ min-width:900px;
 
 .header_name a {
   text-decoration: none;
-  color: #526476;
+  color: #3498db;
 }
 
 .active_user span {
@@ -55,6 +66,57 @@ min-width:900px;
 
 .nav_links li a {
 	padding: 15.5px !important;
+	color: #3498db;
 	text-decoration: none;
 }
 
+#banner {
+	width: 100%;
+	height: 550px;
+	background-color: blue;
+	overflow: hidden;
+}
+
+#nav_bar {
+	border: 0;
+	background-color: #202020;
+	border-radius: 0px;
+	margin-bottom: 0;
+/*	border-bottom: solid 2px #3498db;
+*/}
+
+.image_size {
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: -100px;
+}
+
+#hero-banner {
+	width: 500px;
+	height: 300px;
+	background-color: rgba(80,80,80,.6);
+	position: absolute;
+	top: 32px;
+	left: 595px;
+	border-radius: 6px;
+	color: #F8F8F8 !important;
+	padding: 20px;
+}
+
+#hero-banner h3 {
+	font-size: 52px;
+}
+
+#hero-button {
+  position: absolute;
+  left: 600px;
+  top: 350px;
+  background-color: #3498db;
+}
+
+#showcase1 {
+	width: 100%;
+	height: 600px;
+	background-color: #93E3EE;
+}

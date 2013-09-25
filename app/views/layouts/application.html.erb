@@ -1,36 +1,44 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>SimplizIT</title>
-		<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-		<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-		<%= csrf_meta_tags %>
-	</head>
-	  
-	<body>
-	 
-	  <nav class="navbar navbar-default navbar-static-top" role="navigation">
-	  	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
-	  	<div class='header_user'></div>
-	  	<% if current_user %>
-	  	  <%= render partial: 'partials/active_user' %>
-	  	<% end %>
-	  	<ul class='nav_links'>
-        <% if current_user %>
-          <%= render partial: 'partials/signout_nav' %>
-    	  <% else %>
-          <%= render partial: 'partials/signin_nav' %>
-     	  <% end %>
-     	</ul>
-    </nav>
-    <div id='main_container'>
+  <head>
+    <title>SimplizIT</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-	    <%= yield %>
-
-      <%= render partial: 'partials/sign_in' %>
-      <%= render partial: 'partials/sign_up' %>
+  <div id="banner">
+    <%= image_tag(('banner_add.jpg'), class: 'image_size') %>
+    <div id='hero-banner'>
+      <h3>Web Applications</h3>
     </div>
-	</body>
+    <button id='hero-button' class='btn btn-primbary btn-lg'>Learn more about somehting here...</button>
+  </div>
+
+  <div id='scroll_nav'>
+    <nav id='nav_bar' class="navbar navbar-default" role="navigation">
+    	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
+    	<div class='header_user'></div>
+    	<% if current_user %>
+     <%= render partial: 'partials/active_user' %>
+     <% end %>
+     <ul class='nav_links'>
+      <% if current_user %>
+      <%= render partial: 'partials/signout_nav' %>
+      <% else %>
+      <%= render partial: 'partials/signin_nav' %>
+      <% end %>
+    </ul>
+  </nav>
+  </div>
+  <%= render partial: 'partials/sign_in' %>
+  <%= render partial: 'partials/sign_up' %>
+  <body>
+
+
+   <%= yield %>
+
+  </body>
 </html>
 
 

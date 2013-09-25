@@ -1,0 +1,23 @@
+#showcase_one {
+	width: 100%;
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+	padding-top: 118px;
+}
+
+#showcase_one i {
+  font-size: 50px;
+}
+
+#showcase_one span {
+	color: #3498db;
+}
+
+.laptop_size {
+	width: 100%;
+	height: auto;
+	position: relative;
+	top: -100px;
+	z-index: -1;
+}
