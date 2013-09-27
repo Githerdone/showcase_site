@@ -17,26 +17,26 @@ s	/*padding-top: 118px;*/
 
 #side_menu {
   position: relative;
-  height: 400px;
+  height: 348px;
   width: 190px;
   border-radius: 6px;
   left: -167px;
-   top: 0;
-  background: rgba(54, 53, 53, 0.57);
-  border: solid 2px black;
+  top: 0;
+  padding-top: 12px;
+  background: rgba(255, 252, 252, 0.79);
+  border: solid 2px rgb(179, 173, 173);
 }
 
 #side_menu div {
 	position: relative;
-	left: -20px;
-	margin: 5px;
+	left: -185px;
+	margin: 8px;
 	width: 180px;
 	height: 50px;
-  border: solid 1px black;
+  border: solid 2px rgb(179, 173, 173);
 	border-radius: 6px;
 	padding-top: 5px;
 	padding-left: 50px; 
-	background-color: yellow;
 }
 
 #side_menu h6 {
@@ -53,15 +53,75 @@ s	/*padding-top: 118px;*/
 
 #action_div {
 
-
+text-align: left;
  border-radius: 6px;
+/*	width: 420px;
+	height: 320px;*/
 	width: 0;
 	height: 0;
 	position: relative;
-/*	left: 44%;
-	top: -44%;*/
-	left: 1%;
-	top: -53%;
-	border-radius: solid 1px yellow;
-	background-color: rgba(54, 53, 53, 0.57);
+	left: 35%;
+	/*left: 200px;*/
+	top: -40%;
+  background-color: rgba(86, 255, 79, 0.52);
+  padding: 21px;
 }
+
+#side_menu h2 {
+	font-size: 16px;
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+#side_menu hr {
+	margin: 0;
+	border-top: 1px solid #9C9C9C;
+
+}
+
+#action_div .inner_div {
+	width: 420px;
+	height: 320px;
+	border-radius: 6px;
+	border: solid 1px #3498db;
+	padding: 6px;
+  background: rgba(255, 252, 252, 0.79);
+
+}
+
+#action_div .info_status {
+	display: inline-block;
+}
+
+#action_div .info_status h2 {
+  margin-top: 0;
+  margin-left: 61px; 
+  position: relative;
+  top: -27px;
+}
+
+#action_div .user {
+	text-align: center;
+	color: #DBDBDB;
+	width: 67px;
+	height: 74px;
+	border-radius: 6px;
+	border: solid 1px #DBDBDB;
+	display: inline-block;
+
+}
+
+#action_div .user i {
+	font-size: 71px;
+}
+
+#action_div form {
+	font-size: 14px !important;
+	margin-top: 10px;
+}
+
+
+.div_text span {
+	font-size: 12px;
+}
+
