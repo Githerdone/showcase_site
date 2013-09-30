@@ -9,13 +9,19 @@ $( document ).ready(function() {
         opacity: 1,
         left: "+=152",
       }, 300)
-      setTimeout(function(){
+      timeout1 = setTimeout(function(){
        var message_box = "<div style='" + message.color.shift() + "; display: none;'><h6>" + message.title.shift() + "</h6></div>";
        $('#side_menu').append(message_box)
        $('#side_menu').find('div').last().show().animate({ left: '+=166' }, 800).fadeIn('500').fadeOut('500').fadeIn('500');
        $('#action_div').show().animate({ top: '+=2%', left: '+=35%', width: '+=500px', height: '+=340px', }, 500);
       }, 100);
-      timer = setInterval(function(){
+      timeout2 = setTimeout(function(){
+        flashIt('.info_status button', 10, 'button_flash', 500)
+      }, 4700);
+      // setTimeout(function(){
+      //   $('.info_status button').addClass('button_flash').myDelay().removeClass('button_flash');
+      // }, 2000);
+      timer3 = setInterval(function(){
         if(message.title.length > 0){
           $('#side_menu').append("<div style='" + message.color.shift() + "; display: none;'><h6>" + message.title.shift() + "</h6></div>")
          $('#side_menu').find('div').last().show().animate({ left: '+=166' }, 800).fadeIn('500').fadeOut('500').fadeIn('500');
@@ -28,7 +34,9 @@ $( document ).ready(function() {
     if ($('#side_menu').css('left') == "-15px"){
       $('#side_menu div').remove();
       message = null;
-      clearInterval(timer)
+      clearInterval(timer3)
+      clearTimeout(timeout1)
+      clearTimeout(timeout2)
       $('#comp_modal').hide();
       $('#action_div').animate({
         top: '-=2%', 
@@ -59,3 +67,11 @@ function Message(){
                 'background-color: #7A89B2',
                 'background-color: #516AAF']
 }
+
+function flashIt(element, times, klass, delay){
+  for (var i=0; i < times; i++){
+    setTimeout(function(){
+      $(element).toggleClass(klass);
+    }, delay + (300 * i));
+  };
+};

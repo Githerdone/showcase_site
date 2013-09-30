@@ -1,0 +1,22 @@
+#showcase_three {
+	width: auto;
+	height: 800px;
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+  background-image: url(/assets/paperstack.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 56px;
+  position: relative;
+  background-position: center;
+}
+
+#laptop_window {
+	background-color: blue;
+	width: 348px;
+	height: 218px;
+	position: relative;
+	left: 688px;
+	top: 218px;
+}

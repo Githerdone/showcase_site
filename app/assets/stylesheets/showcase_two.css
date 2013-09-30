@@ -8,7 +8,6 @@
   background-size: 100%;
   background-repeat: no-repeat;
   padding-top: 56px;
-s	/*padding-top: 118px;*/
 }
 
 #showcase_two i {
@@ -157,6 +156,10 @@ textarea:focus, input:focus{
   background-color: #8DABFF;
 }
 
+.button_flash {
+	background-color: #8DABFF !important;
+}
+
 #comp_modal {
 	position: relative;
 	left: 541px;
@@ -181,7 +184,7 @@ textarea:focus, input:focus{
 	color: #34495e;
   text-align: center;
   margin-top: 5px;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 #comp_modal hr {
@@ -195,7 +198,7 @@ textarea:focus, input:focus{
 
 #comp_modal ul {
   list-style-type: none;
-  padding-left: 20px;
+  padding-left: 12px;
 }
 
 #comp_modal li {
