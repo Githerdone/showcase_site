@@ -1,4 +1,5 @@
 #showcase_three {
+	border-top: 1px solid #ddd;
 	width: auto;
 	height: 800px;
 	font-size: 20px;
@@ -12,11 +13,59 @@
   background-position: center;
 }
 
-#laptop_window {
+
+
+
+#showcase_four {
+	border-top: 1px solid #ddd;
+	width: auto;
+	height: 800px;
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+  padding-top: 56px;
+  position: relative;
+}
+
+#paperstack_img {
+	width: 900px;
+	height: 800px;
+	margin-left: auto;
+  margin-right: auto;
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+  background-image: url(/assets/paperstack_only.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 56px;
+  z-index: 500;
+}
+
+#laptop_img {
+	width: 500px;
+	height: 800px;
+	font-size: 20px;
+	color: #202020;
+	text-align: center;
+  background-image: url(/assets/laptop_only.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding-top: 56px;
+  position: relative;
+  background-position: center;
+  display: inline-block;
+  z-index: 501;
+  left: 186px;
+  top: -4px;
+}
+
+.laptop_window {
 	background-color: blue;
-	width: 348px;
-	height: 218px;
-	position: relative;
-	left: 688px;
-	top: 218px;
+	width: 344px;
+	height: 216px;
+	position: absolute;
+	left: 51.1%;
+	top: 558px;
+	z-index: 502;
 }

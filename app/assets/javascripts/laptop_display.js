@@ -1,10 +1,16 @@
-$(document).ready(function() {
+// $(document).ready(function() {
   
-  $(window).resize(function(){
-  	console.log(this)
-  	console.log('the window is changing width to this' + $('#showcase_three').width())
-  })
-  		console.log($('#showcase_three').height());
-  console.log($('#showcase_three').width());
+//   $(window).resize(function(){
+//   	var math_stuff = $('#showcase_three').width() * .0008
+//   	var current_position = $('#laptop_window').position().left;
+//     var adjust = current_position + math_stuff
+//     // console.log(adjust)
+//     console.log(math_stuff)
+//       // $('#laptop_window').css('left', adjust + 'px')
+  	
+  		
 
-});
+//   })
+
+
+// });

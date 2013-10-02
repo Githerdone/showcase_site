@@ -1,4 +1,5 @@
 #showcase_two {
+	border-top: 1px solid #ddd;
 	width: auto;
 	height: 800px;
 	font-size: 20px;
@@ -7,7 +8,6 @@
   background-image: url(/assets/office_secret.png);
   background-size: 100%;
   background-repeat: no-repeat;
-  padding-top: 56px;
 }
 
 #showcase_two i {
