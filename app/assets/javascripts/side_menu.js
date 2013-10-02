@@ -18,9 +18,6 @@ $( document ).ready(function() {
       timeout2 = setTimeout(function(){
         flashIt('.info_status button', 10, 'button_flash', 500)
       }, 4700);
-      // setTimeout(function(){
-      //   $('.info_status button').addClass('button_flash').myDelay().removeClass('button_flash');
-      // }, 2000);
       timer3 = setInterval(function(){
         if(message.title.length > 0){
           $('#side_menu').append("<div style='" + message.color.shift() + "; display: none;'><h6>" + message.title.shift() + "</h6></div>")

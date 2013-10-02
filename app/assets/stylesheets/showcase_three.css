@@ -5,24 +5,6 @@
 	font-size: 20px;
 	color: #202020;
 	text-align: center;
-  background-image: url(/assets/paperstack.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding-top: 56px;
-  position: relative;
-  background-position: center;
-}
-
-
-
-
-#showcase_four {
-	border-top: 1px solid #ddd;
-	width: auto;
-	height: 800px;
-	font-size: 20px;
-	color: #202020;
-	text-align: center;
   padding-top: 56px;
   position: relative;
 }
@@ -60,12 +42,26 @@
   top: -4px;
 }
 
-.laptop_window {
-	background-color: blue;
+#showcase_three .laptop_window {
 	width: 344px;
 	height: 216px;
 	position: absolute;
 	left: 51.1%;
 	top: 558px;
 	z-index: 502;
+}
+
+#showcase_three .laptop_window p{
+	margin-top: 18%;
+	font-size: 80px;
+}
+
+#laptop_bullet {
+	font-size: 20px !important;
+	margin-top: -21px !important;
+	color: #34495e !important;
+}
+
+#laptop_header {
+	color: #3498db;
 }

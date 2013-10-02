@@ -8,12 +8,12 @@ html, body {
 	min-width:1000px;
 }
 
-#main_container {
+/*#main_container {
 	width: 90%;
 	height: 100%;
 	position: relative;
 	left: 5%;
-}
+}*/
 
 body {
 	top: 0;
@@ -81,8 +81,8 @@ body {
 	background-color: #202020;
 	border-radius: 0px;
 	margin-bottom: 0;
-/*	border-bottom: solid 2px #3498db;
-*/}
+	border-bottom: solid 2px #3498db;
+}
 
 .image_size {
 	width: 100%;
@@ -119,3 +119,5 @@ body {
 	height: 600px;
 	background-color: #93E3EE;
 }
+
+

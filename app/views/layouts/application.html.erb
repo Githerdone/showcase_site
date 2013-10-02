@@ -15,8 +15,7 @@
     <button id='hero-button' class='btn btn-primbary btn-lg'>Learn more about somehting here...</button>
   </div>
 
-  <div id='scroll_nav'>
-    <nav id='nav_bar' class="navbar navbar-default" role="navigation">
+    <nav id='nav_bar'>
     	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
     	<div class='header_user'></div>
     	<% if current_user %>
@@ -30,7 +29,6 @@
       <% end %>
     </ul>
   </nav>
-  </div>
   <%= render partial: 'partials/sign_in' %>
   <%= render partial: 'partials/sign_up' %>
   <body>
