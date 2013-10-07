@@ -1,0 +1,65 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+html {
+	height: 3850px;
+}
+
+body {
+	top: 0;
+	position: relative;
+	min-width: 1000px;
+  height: 3850px;
+}
+
+.loginbox {
+	width: 195px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.header_name {
+  display: inline-block !important;
+  font-size: 30px;
+  padding-top: 3px;
+  padding-left: 20px;
+}
+
+.header_user {
+	display: inline-block !important;
+}
+
+.active_user {
+	display: inline-block !important;
+	position: relative;
+	top: -4px;
+	font-size: 14px;
+}
+
+.header_name a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+.active_user span {
+  color: #1A8BBC;
+}
+
+.nav_links {
+  margin-top: 15px;
+	display: inline-block !important;
+	float: right;
+	margin-right: 30px !important;
+}
+
+.nav_links li {
+	display: inline-block;
+}
+
+.nav_links li a {
+	padding: 15.5px !important;
+	color: #3498db;
+	text-decoration: none;
+}

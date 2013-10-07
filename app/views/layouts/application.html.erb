@@ -7,35 +7,13 @@
     <%= csrf_meta_tags %>
   </head>
 
-  <div id="banner">
-    <%= image_tag(('banner_add.jpg'), class: 'image_size') %>
-    <div id='hero-banner'>
-      <h3>Web Applications</h3>
-    </div>
-    <button id='hero-button' class='btn btn-primbary btn-lg'>Learn more about somehting here...</button>
-  </div>
+  <%= render partial: 'partials/banner' %>
 
-    <nav id='nav_bar'>
-    	<div class='header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
-    	<div class='header_user'></div>
-    	<% if current_user %>
-     <%= render partial: 'partials/active_user' %>
-     <% end %>
-     <ul class='nav_links'>
-      <% if current_user %>
-      <%= render partial: 'partials/signout_nav' %>
-      <% else %>
-      <%= render partial: 'partials/signin_nav' %>
-      <% end %>
-    </ul>
-  </nav>
+ 
   <%= render partial: 'partials/sign_in' %>
   <%= render partial: 'partials/sign_up' %>
   <body>
-
-
-   <%= yield %>
-
+    <%= yield %>
   </body>
 </html>
 

@@ -1,0 +1,52 @@
+#footer {
+  background: -webkit-linear-gradient(bottom,#516AAF 0%, #516AAF 30%, #7A89B2 30%, #7A89B2 100%) repeat 0 0;
+	width: 100%;
+	height: 500px;
+	position: fixed;
+	text-align: center;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 0;
+	color: #FFF;
+	padding-top: 100px;
+}
+
+#showcase {
+	background-color: #FFF;
+	position: relative;
+	z-index: 1;
+}
+
+.triangle {
+	background-image: url(/assets/triangle.png);
+	background-repeat: repeat-x;
+	background-size: contain;
+	position: relative;
+	z-index: 1;
+  height: 15px;
+  width: 100%;
+  display: block;
+}
+
+#footer_icons {
+	position: relative;
+	top: 180px;
+}
+
+#footer_icons a {
+	font-size: 40px;
+	padding: 8px;
+	color: #7A89B2;
+}
+
+#footer_icons a:hover {
+  color: #FFF;
+}
+
+#footer_bottom {
+	position: relative;
+	top: 218px;
+	text-align: center;
+	color: #7A89B2;
+}

@@ -19,5 +19,5 @@
 	height: auto;
 	position: relative;
 	top: -100px;
-	z-index: -1;
+	z-index: 0;
 }

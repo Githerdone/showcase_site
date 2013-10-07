@@ -1,17 +1,18 @@
 #showcase_two {
 	border-top: 1px solid #ddd;
 	width: auto;
-	height: 800px;
+	height: 668px;
 	font-size: 20px;
 	color: #202020;
 	text-align: center;
   background-image: url(/assets/office_secret.png);
   background-size: 100%;
   background-repeat: no-repeat;
+  padding-top: 35px;
 }
 
 #showcase_two i {
-  font-size: 50px;
+  font-size: 30px;
 }
 
 #side_menu {
@@ -208,4 +209,8 @@ textarea:focus, input:focus{
 
 #comp_modal span {
 	color: #1695EB;
+}
+
+#secret_wrapper {
+	height: 452px;
 }
