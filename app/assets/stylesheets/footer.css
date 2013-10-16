@@ -16,6 +16,7 @@
 	background-color: #FFF;
 	position: relative;
 	z-index: 1;
+	min-height: 3400px;
 }
 
 .triangle {

@@ -34,7 +34,6 @@ $(document).ready(function() {
         }
       }
     }else if(isScrolledIntoView('#secret_wrapper') == false){
-      console.log('its false')
       if ($('#side_menu').css('left') == "-15px"){
         $('#side_menu div').remove();
         message = null;

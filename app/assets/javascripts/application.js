@@ -11,7 +11,17 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.ui.button
+//= require jquery.ui.datepicker
+//= require jquery.ui.slider
+//= require jquery.ui.spinner
+//= require jquery.ui.tooltip
+//= require jquery.ui.effect
 //= require jquery_ujs
+//= require twitter/bootstrap
+//= require flatuipro
 //= require_tree ../../../vendor/assets/javascripts/.
 //= require turbolinks
 //= require_tree .
+
+// $("#hello").selectpicker({style: 'btn-hg btn-primary'});

@@ -4,27 +4,35 @@
 
 
 html {
-	height: 3850px;
+	height: 3880px;
 }
 
 body {
 	top: 0;
 	position: relative;
 	min-width: 1000px;
-  height: 3850px;
+  height: 3880px;
 }
 
-.loginbox {
+.navbar-fixed {
+  top: 0;
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+}
+
+/*.loginbox {
 	width: 195px;
   margin-right: auto;
   margin-left: auto;
-}
+}*/
 
 .header_name {
   display: inline-block !important;
   font-size: 30px;
   padding-top: 3px;
   padding-left: 20px;
+  margin-bottom: 5px;
 }
 
 .header_user {

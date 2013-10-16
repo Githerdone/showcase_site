@@ -25,7 +25,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   padding-top: 56px;
-  z-index: 500;
+  /*z-index: 500;*/
 }
 
 #laptop_img {
@@ -41,7 +41,7 @@
   position: relative;
   background-position: center;
   display: inline-block;
-  z-index: 501;
+  /*z-index: 501;*/
   left: 186px;
   top: -4px;
 }
@@ -53,7 +53,7 @@
 	position: absolute;
 	left: 51.6%;
 	top: 560px;
-	z-index: 503;
+	/*z-index: 503;*/
 }
 
 #laptop_window_secondary p{
@@ -68,7 +68,7 @@
 	position: absolute;
 	left: 16.6%;
 	top: 287px;
-	z-index: 502;
+	/*z-index: 502;*/
 }
 
 #laptop_bullet {
@@ -88,5 +88,5 @@
 	height: 478px;
 	position: absolute;
 	top: 387px;
-	z-index: 504;
+	/*z-index: 504;*/
 }

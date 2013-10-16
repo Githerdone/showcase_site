@@ -1,6 +1,9 @@
 MDoffice::Application.routes.draw do
+  get "flatuipro_demo/index"
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }, path_name: {:sign_in => "login", :sign_out => "logout"}, :path => "user"
   resources :users
+  resources :projects
+  resources :blogs
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

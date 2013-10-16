@@ -1,0 +1,195 @@
+
+<nav id='project_nav_bar'>
+  <div class='project_header_name'><%= link_to('SimplizIT', root_path, method: 'get') %></div>
+  <div class='project_header_user'></div>
+  <% if current_user %>
+    <%= render partial: 'partials/active_user' %>
+    <% end %>
+   <ul class='project_nav_links'>
+    <% if current_user %>
+      <%= render partial: 'partials/signout_nav' %>
+    <% else %>
+      <%= render partial: 'partials/signin_nav' %>
+    <% end %>
+  </ul>
+</nav>
+
+<div class='project'>
+  <div class='tab-wrapper'>
+    <ul class="tabrow">
+      <li class="selected"><a href='#tab1' class='selected icon-user'></a></li>
+      <li><a href='#tab2' class='icon-tag'></a></li>
+      <li><a href='#tab3' class='icon-group'></a></li>
+      <li><a href='#tab4' class='icon-search'></a></li>
+    </ul>
+
+    <div id='tab-container'>
+      <div class="tab" id="tab1">
+        <h5>Enter User Information</h5>
+        <hr />
+         
+        <form class='info_status'>
+
+          <!-- Name -->
+          <div style='display: inline-block;'>
+            <label>Name</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='First' autofocus>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Last'>
+          </div>
+          
+          <!-- Gender -->
+          <div style='display: inline-block;'> 
+            <label class="radio">
+            <input type="radio" name="group1" value="1" data-toggle="radio">Male</label>
+          </div>
+
+          <div style='display: inline-block;'>
+            <label class="radio">
+            <input type="radio" name="group1" value="2" data-toggle="radio">Female</label>
+          </div>
+
+          <!-- SSN -->
+          <div style='display: inline-block;'>
+            <label>Social Security #</label>
+            <input id='SSN' type='text' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
+          </div>
+
+          <!-- DOB -->
+          <div style='display: inline-block;'>
+            <label>Date of Birth</label>
+            <input id='DOB' type='text' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
+          </div>
+
+          <!-- Age -->
+          <div style='display: inline-block;'>
+            <label>Age</label>
+            <input type='text' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
+          </div>
+          
+          <div class='dropdown' style='width: 135px;'>
+            <select name="info" class=" form-dropdown select-block mbl" style='display: inline-block'>
+              <optgroup label="Marital Status">
+                <option value="0">Single</option>
+                <option value="1">Married</option>
+                <option value="2">Separated</option>
+                <option value="3">Divorced</option>
+                <option value="4">Widowed</option>
+              </optgroup>
+             </select>
+          </div>
+ 
+
+          <!-- Mailing Address -->
+          <div style='display: inline-block'>
+            <label>Address</label>
+            <input type='text' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
+            <input type='text' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
+
+            <div style='display: inline-block'>
+              <input id='state' style="text-transform: uppercase; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
+            </div>
+            <input type='text' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
+          </div>
+          
+          <!-- Email -->
+          <div style='display: inline-block;'>
+            <label>Email Address</label>
+            <input type='text' style="display: inline; width: 300px;" maxlength='40' placeholder="Email">
+          </div>
+
+          <!-- Primary Phone-->
+          <div style='display: inline-block;'>
+            <label>Phone Numbers --></label>
+            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+
+            <!-- Work Phone-->
+            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
+
+            <!-- Cell Phone-->
+            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
+          </div></br>
+
+
+
+          <hr class='form-line'/>
+          <label type='text' style='margin-top: 13px;'>Order Information</label>
+          <input type='text' style="display: inline; width: 115px;" placeholder="Product Number">
+          <input type='text' style="display: inline; width: 180px;" placeholder="Description">
+          <input type='text' style="display: inline; margin-left: 40px; width: 60px;" placeholder="Price">
+          <input type='text' style="display: inline; width: 60px;" placeholder="Amount"><br />
+          <input type='text' style="display: inline; width: 115px;" placeholder="Product Number">
+          <input type='text' style="display: inline; width: 180px;" placeholder="Description">
+          <input type='text' style="display: inline; margin-left: 40px; width: 60px;" placeholder="Price">
+          <input type='text' style="display: inline; width: 60px;" placeholder="Amount"><br />
+          <input type='text' style="display: inline; width: 150px; margin-top: 14px;" placeholder="Order Number"><span  type='text' style='color: rgba(235, 46, 121, 0.8)'> - Go ahead and submit this form! --></span>
+          <button class='btn btn-primary'>Submit</button>
+        </form>
+      </div>
+    
+      <div class="tab" id="tab2">
+        <h2>Tag tab</h2>
+        <p>paper tag</p>
+        <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>The Shawshank Redemption</td>
+                <td>1994</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>The Godfather</td>
+                <td>1972</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>The Godfather: Part II</td>
+                <td>1974</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    
+      <div class="tab" id="tab3">
+        <h2>Group tab</h2>
+        <p>Group Tab</p>
+
+
+          <select multiple="multiple" name="huge" class="select-block mbl" style="display: none;">
+            <option value="0">1</option>
+            <option value="1">2</option>
+            <option value="2">3</option>
+            <option value="3">4</option>
+            <option value="4">5</option>
+          </select>
+
+          <div class="btn-group select select-block mbl select-multiple" data-no-turbolink><i class="dropdown-arrow dropdown-arrow-inverse"></i><button class="btn dropdown-toggle clearfix btn-hg btn-primary" data-toggle="dropdown"><span class="filter-option pull-left"></span>&nbsp;<span class="caret"></span></button><ul class="dropdown-menu dropdown-inverse" role="menu" style="overflow-y: auto; min-height: 111px;"><li rel="0"><a tabindex="-1" href="#" class=""><span class="pull-left">1</span></a></li><li rel="1" class=""><a tabindex="-1" href="#" class="active"><span class="pull-left">2</span></a></li><li rel="2" class="selected"><a tabindex="-1" href="#" class=""><span class="pull-left">3</span></a></li><li rel="3" class="selected"><a tabindex="-1" href="#" class="active"><span class="pull-left">4</span></a></li><li rel="4"><a tabindex="-1" href="#" class=""><span class="pull-left">5</span></a></li></ul></div>
+      </div>
+
+      <div class="tab" id="tab4">
+        <h2>Search tab</h2>
+        <p>Search Tab</p>
+        <select name='huge' id='hello'>
+  <option value="0">My Profile</option>
+  <option value="1">My Friends</option>
+</select>
+
+
+
+<div class="switch has-switch">
+  <div class="switch-on switch-animate">
+    <input type="checkbox" data-toggle="switch">
+    <span class="switch-left">ON</span>
+  </div>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
