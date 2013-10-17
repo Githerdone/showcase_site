@@ -66,6 +66,52 @@ var USphone = function(){
   });
 };
 
+var CellPhone = function(){
+  $('#cellphone').keyup(function(e){
+    var cellphone = document.getElementById('cellphone');
+    if(cellphone.validity.valid == true && $(cellphone).val().length > 0){
+      if($('#textswitch div').hasClass('deactivate')){
+        $('#textswitch div').removeClass('deactivate');
+      }else{
+        return
+      }
+    }else{
+      $('#textswitch div').removeClass('switch-on').addClass('switch-off');
+      $('#textswitch div').addClass('deactivate');
+    }
+  });
+};
+
+var Email = function(){
+  $('#email').keyup(function(e){
+    var email = document.getElementById('email');
+    if(email.validity.valid == true && $(email).val().length > 0 ){
+      if($('#emailswitch div').hasClass('deactivate')){
+        $('#emailswitch div').removeClass('deactivate');
+      }else{
+        return
+      }
+    }else{
+      $('#emailswitch div').removeClass('switch-on').addClass('switch-off');
+      $('#emailswitch div').addClass('deactivate');
+    }
+  });
+};
+
+var formValidity = function(){
+
+}
+
+var formInputValidity = function(){
+  $('.patient_contact_form input').keyup(function(e){
+    if(this.validity.valid == false){
+      $(this).addClass('input-error')
+    }else{
+      $(this).removeClass('input-error')
+    }
+  })
+}
+
 
 
 
@@ -81,3 +127,17 @@ $(document).on('page:load', ssn);
 
 $(document).ready(USphone);
 $(document).on('page:load', USphone);
+
+$(document).ready(CellPhone);
+$(document).on('page:load', CellPhone);
+
+$(document).ready(Email);
+$(document).on('page:load', Email);
+
+$(document).ready(formInputValidity);
+$(document).on('page:load', formInputValidity);
+
+
+
+
+

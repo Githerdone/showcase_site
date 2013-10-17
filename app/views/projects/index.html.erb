@@ -25,16 +25,16 @@
 
     <div id='tab-container'>
       <div class="tab" id="tab1">
-        <h5>Enter User Information</h5>
+        <h5>Patient Information</h5>
         <hr />
          
-        <form class='info_status'>
+        <form class='patient_contact_form'>
 
           <!-- Name -->
           <div style='display: inline-block;'>
             <label>Name</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='First' autofocus>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Last'>
+            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First' autofocus>
+            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
           </div>
           
           <!-- Gender -->
@@ -67,6 +67,7 @@
           </div>
           
           <div class='dropdown' style='width: 135px;'>
+            <label>Marital Status</label>
             <select name="info" class=" form-dropdown select-block mbl" style='display: inline-block'>
               <optgroup label="Marital Status">
                 <option value="0">Single</option>
@@ -83,10 +84,10 @@
           <div style='display: inline-block'>
             <label>Address</label>
             <input type='text' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
-            <input type='text' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
+            <input type='text' style="display: inline; width: 200px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder="City">
 
             <div style='display: inline-block'>
-              <input id='state' style="text-transform: uppercase; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
+              <input id='state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' pattern='^[a-zA-Z]+$' maxlength='11' placeholder='State'/>
             </div>
             <input type='text' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
           </div>
@@ -94,37 +95,163 @@
           <!-- Email -->
           <div style='display: inline-block;'>
             <label>Email Address</label>
-            <input type='text' style="display: inline; width: 300px;" maxlength='40' placeholder="Email">
+            <input id='email' type='text' style="display: inline; width: 300px;" pattern='^[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+@{1}[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+\.[a-zA-Z]{2,4}$' maxlength='40' placeholder="Email">
           </div>
 
           <!-- Primary Phone-->
           <div style='display: inline-block;'>
-            <label>Phone Numbers --></label>
+            <label>Contact Numbers --></label>
             <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
 
             <!-- Work Phone-->
             <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
 
             <!-- Cell Phone-->
-            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
+            <input id='cellphone' class='USphone' type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
           </div></br>
+          
+          <div style='display: inline-block;'>
+            <label><i>We can send appointment reminders and office messages - <span style='color: #1abc9c;'>Turn on one, or both selections.</span></i></label>
+
+            <div id='emailswitch' style='display: inline-block; margin-right: 25px;'>
+              <label>E-mail</label>
+              <input type="checkbox" data-toggle="switch" disabled />
+            </div>
+
+            <div id='textswitch' style='display: inline-block'>
+              <label>Text</label>
+              <input type="checkbox" data-toggle="switch" disabled />
+            </div>
+          </div>
+          
+          <hr class='form-line'/></br>
+          <h5>Emergency Contact</h5>
+
+          
+
+          <!-- Emergency Contact Name -->
+          <div style='display: inline-block;'>
+            <label>Name</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
+            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
+          </div></br>
+           <!-- Emergency Contact Number -->
+          <div style='display: inline-block;'>
+            <label>Contact Number</label>
+            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+          </div>
+
+          <div class='dropdown' style='width: 135px;'>
+            <label>Relationship</label>
+            <select name="info" class=" form-dropdown select-block mbl" style='display: inline-block'>
+              <optgroup label="Choose Best Fit">
+                <option value="0">Friend</option>
+                <option value="1">Guardian</option>
+                <option value="2">Grandparent</option>
+                <option value="3">Sibling</option>
+                <option value="4">Spouse</option>
+              </optgroup>
+             </select>
+          </div> 
+
+          <hr class='form-line'/></br>
+          <h5>Occupation</h5>
+
+          <!-- Occupation Title -->
+          <div style='display: inline-block;'>
+            <label>Occupation</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Title'>
+          </div>
+          
+          <!-- Employer Name -->
+          <div style='display: inline-block;'>
+            <label>Employer</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Business Name'>
+          </div>
+
+          <!-- Employer Contact Number -->
+          <div style='display: inline-block;'>
+            <label>Employer Phone</label>
+            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+          </div>
+
+          <!-- Employer Address -->
+          <div style='display: inline-block'>
+            <label>Employer Address</label>
+            <input type='text' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
+            <input type='text' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
+
+            <div style='display: inline-block'>
+              <input id='state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
+            </div>
+            <input type='text' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
+          </div>
+
+          <hr class='form-line'/></br>
+          <h5>Insurance</h5>
+
+          <!-- Carrier Name -->
+          <div style='display: inline-block;'>
+            <label>Primary Insurance Carrier</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Name'>
+          </div>
+
+          <!-- Group Number -->
+          <div style='display: inline-block;'>
+            <label>Group Number</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
+          </div>
+
+          <!-- Policy Number -->
+          <div style='display: inline-block;'>
+            <label>Policy Number</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
+          </div>
+
+          <!-- Group Number -->
+          <div style='display: inline-block;'>
+            <label>Primary Group</label>
+            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Number'>
+          </div>
+
+           <div style='display: inline-block'>
+              <input id='state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
+            </div>
+            <input type='text' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
+          </div>
 
 
 
-          <hr class='form-line'/>
-          <label type='text' style='margin-top: 13px;'>Order Information</label>
-          <input type='text' style="display: inline; width: 115px;" placeholder="Product Number">
-          <input type='text' style="display: inline; width: 180px;" placeholder="Description">
-          <input type='text' style="display: inline; margin-left: 40px; width: 60px;" placeholder="Price">
-          <input type='text' style="display: inline; width: 60px;" placeholder="Amount"><br />
-          <input type='text' style="display: inline; width: 115px;" placeholder="Product Number">
-          <input type='text' style="display: inline; width: 180px;" placeholder="Description">
-          <input type='text' style="display: inline; margin-left: 40px; width: 60px;" placeholder="Price">
-          <input type='text' style="display: inline; width: 60px;" placeholder="Amount"><br />
-          <input type='text' style="display: inline; width: 150px; margin-top: 14px;" placeholder="Order Number"><span  type='text' style='color: rgba(235, 46, 121, 0.8)'> - Go ahead and submit this form! --></span>
-          <button class='btn btn-primary'>Submit</button>
+
+          <div style='display: inline-block; width: 550px;'>
+            <i>By submitting this form you accept blah blah blah...</i>
+          </div>
+
+          <div style='display: inline-block; width: 200px;'>
+            <button class="btn btn-large btn-block btn-inverse">Submit</button>
+          </div>
         </form>
       </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
       <div class="tab" id="tab2">
         <h2>Tag tab</h2>
