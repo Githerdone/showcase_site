@@ -14,7 +14,7 @@ var ready = function() {
 
 var dob = function(){
   var key_code = [8, 37, 39]
-  $('#DOB').keyup(function(e){
+  $('.DOB').keyup(function(e){
     for (var i=0; i<key_code.length; i++){
       if(e.keyCode == key_code[i]){
         return
@@ -32,7 +32,7 @@ var dob = function(){
 
 var ssn = function(){
   var key_code = [8, 37, 39]
-  $('#SSN').keyup(function(e){
+  $('.SSN').keyup(function(e){
     for (var i=0; i<key_code.length; i++){
       if(e.keyCode == key_code[i]){
         return
@@ -112,6 +112,48 @@ var formInputValidity = function(){
   })
 }
 
+var sameAsAbove = function(){
+  var counter = 0
+  $('#checkboxsame').change(function(){
+    var form = this.form
+    var firstname = $('#patient-first-name').val();
+    var lastname = $('#patient-last-name').val();
+    var gendermale = $('#gender-male').attr('class');
+    var genderfemale = $('#gender-female').attr('class');
+    counter += 1
+    if(counter == 1){
+      form.firstnameinsurance.value = form.firstname.value;
+      form.lastnameinsurance.value = form.lastname.value;
+      form.ssninsurance.value = form.ssn.value;
+      form.dobinsurance.value = form.dob.value;
+      form.ageinsurance.value = form.age.value;
+      form.primaryphoneinsurance.value = form.primaryphone.value;
+      form.workphoneinsurance.value = form.workphone.value;
+      form.cellphoneinsurance.value = form.cellphone.value;
+    }else{
+      form.firstnameinsurance.value = ""
+      form.lastnameinsurance.value = ""
+      form.ssninsurance.value = ""
+      form.dobinsurance.value = ""
+      form.ageinsurance.value = ""
+      form.primaryphoneinsurance.value = ""
+      form.workphoneinsurance.value = ""
+      form.cellphoneinsurance.value = ""
+      counter = 0
+    }
+
+
+  })
+  
+}
+
+// var getAge = function(){
+//     d2 = new Date();
+//     var diff = d2.getTime() - d1.getTime();
+//     return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+// }
+// console.log( getAge(new Date(1978, 10, 3)) );
+
 
 
 
@@ -136,6 +178,9 @@ $(document).on('page:load', Email);
 
 $(document).ready(formInputValidity);
 $(document).on('page:load', formInputValidity);
+
+$(document).ready(sameAsAbove);
+$(document).on('page:load', sameAsAbove);
 
 
 
