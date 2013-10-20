@@ -27,135 +27,183 @@
       <div class="tab" id="tab1">
         <h5>Patient Information</h5>
         <hr />
-         
-        <form class='patient_contact_form'>
+
+        <%= form_tag do %>
 
           <!-- Name -->
           <div style='display: inline-block;'>
             <label>Name</label>
-            <input id='patient-first-name' type='text' name='firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
-            <input id='patient-last-name' type='text' name='lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
+
+            <!-- First -->
+            <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
+
+            <!-- Last -->
+            <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
           </div>
           
           <!-- Gender -->
-          <div style='display: inline-block;'> 
+          <div style='display: inline-block; margin-left: 20px;'> 
             <label id='gender-male' class="radio">
-            <input type="radio" name="group1" value="1" data-toggle="radio">Male</label>
+            <input type="radio" name="patient[]info[]gender" value="male" data-toggle="radio">Male</label>
           </div>
 
           <div style='display: inline-block;'>
             <label id='gender-female' class="radio">
-            <input type="radio" name="group1" value="2" data-toggle="radio">Female</label>
+            <input type="radio" name="patient[]info[]gender" value="female" data-toggle="radio">Female</label>
           </div>
 
           <!-- SSN -->
           <div style='display: inline-block;'>
             <label>Social Security #</label>
-            <input class='SSN' type='text' name='ssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
+            <input class='SSN' type='text' name='patient[]info[]ssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
           </div>
 
           <!-- DOB -->
           <div style='display: inline-block;'>
             <label>Date of Birth</label>
-            <input class='DOB' type='text' name='dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
+            <input class='DOB' type='text' name='patient[]info[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
           </div>
 
           <!-- Age -->
           <div style='display: inline-block;'>
             <label>Age</label>
-            <input type='text' name='age' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
+            <input type='text' name='patient[]info[]age' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
           </div>
           
-          <div class='dropdown' style='width: 135px;'>
+          <div class='dropdown marital-status' style='width: 135px;'>
             <label>Marital Status</label>
-            <select name="info" class=" form-dropdown select-block mbl" style='display: inline-block'>
+            <select id='maritalStatus' name="patient[]info[]maritalstatus" class="form-dropdown select-block mbl" style='display: inline-block'>
               <optgroup label="Marital Status">
-                <option value="0">Single</option>
-                <option value="1">Married</option>
-                <option value="2">Separated</option>
-                <option value="3">Divorced</option>
-                <option value="4">Widowed</option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="separated">Separated</option>
+                <option value="divorced">Divorced</option>
+                <option value="widowed">Widowed</option>
               </optgroup>
              </select>
           </div>
- 
+          
+          <!-- Spouse Info -->
+          <div id='spouseInfo' style='display: none; width: 750px;'>
+
+            <hr class='form-line'/></br>
+            <div id='spouseInfoInner'>
+              <label>Spouse's Information</label>
+
+              <!-- First Name -->
+              <input type='text' name='patient[]hstore[]spouse[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First Name'>
+
+              <!-- Last Name -->
+              <input type='text' name='patient[]hstore[]spouse[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last Name'>
+
+              <!-- Gender -->
+              <div class='genderspouse' style='display: inline-block; margin-left: 20px;'> 
+                <label class="radio">
+                <input type="radio" name="patient[]hstore[]spouse[]gender" value="male" data-toggle="radio">Male</label>
+              </div>
+
+              <div class='genderspouse' style='display: inline-block;'>
+                <label class="radio">
+                <input type="radio" name="patient[]hstore[]spouse[]gender" value="female" data-toggle="radio">Female</label>
+              </div>
+
+              <!-- SSN -->
+              <div style='display: inline-block;'>
+                <label>Social Security #</label>
+                <input type='text' name='patient[]hstore[]spouse[]ssn' style="width: 108px;" pattern='^\d{4}$' maxlength='4' placeholder='####'>
+              </div>
+
+              <!-- DOB -->
+              <div style='display: inline-block;'>
+                <label>Date of Birth</label>
+                <input class='DOB' type='text' name='patient[]hstore[]spouse[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
+              </div>
+            </div>
+            <hr class='form-line'/>
+          </div>
 
           <!-- Mailing Address -->
           <div style='display: inline-block'>
             <label>Address</label>
             <!-- Street Address -->
-            <input type='text' name='streetaddress' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
+            <input type='text' name='patient[]hstore[]address[]street' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
 
             <!-- City -->
-            <input type='text' name='cityaddress' style="display: inline; width: 200px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder="City">
+            <input type='text' name='patient[]hstore[]address[]city' style="display: inline; width: 200px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder="City">
             
             <!-- State -->
             <div style='display: inline-block'>
-              <input id='state' name='stateaddress' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' pattern='^[a-zA-Z]+$' maxlength='11' placeholder='State'/>
+              <input id='state' name='patient[]hstore[]address[]state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' pattern='^[a-zA-Z]+$' maxlength='11' placeholder='State'/>
             </div>
 
             <!-- Zip Code -->
-            <input type='text' name='zipaddress' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
+            <input type='text' name='patient[]hstore[]address[]zip' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
           </div>
           
           <!-- Email -->
           <div style='display: inline-block;'>
             <label>Email Address</label>
-            <input id='email' type='text' style="display: inline; width: 300px;" pattern='^[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+@{1}[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+\.[a-zA-Z]{2,4}$' maxlength='40' placeholder="Email">
+            <input id='email' type='text' name='patient[]info[]email' style="display: inline; width: 300px;" pattern='^[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+@{1}[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+\.[a-zA-Z]{2,4}$' maxlength='40' placeholder="Email">
           </div>
 
           <!-- Primary Phone-->
           <div style='display: inline-block;'>
             <label>Contact Numbers --></label>
-            <input class='USphone' type='text' name='primaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+            <input class='USphone' type='text' name='patient[]info[]primaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
 
             <!-- Work Phone-->
-            <input class='USphone' type='text' name='workphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
+            <input class='USphone' type='text' name='patient[]info[]workphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
 
             <!-- Cell Phone-->
-            <input class='USphone' type='text' name='cellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
+            <input id='cellphone' class='USphone' type='text' name='patient[]info[]cellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
           </div></br>
           
           <div style='display: inline-block;'>
             <label><i>We can send appointment reminders and office messages - <span style='color: #1abc9c;'>Turn on one, or both selections.</span></i></label>
 
+            <!-- Email Messages Switch -->
             <div id='emailswitch' style='display: inline-block; margin-right: 25px;'>
               <label>E-mail</label>
-              <input type="checkbox" data-toggle="switch" disabled />
+              <input type="checkbox" name='patient[]info[]emailmessages' value='true' data-toggle="switch" disabled />
             </div>
 
+            <!-- Text Messages Switch -->
             <div id='textswitch' style='display: inline-block'>
               <label>Text</label>
-              <input type="checkbox" data-toggle="switch" disabled />
+              <input type="checkbox" name='patient[]info[]textmessages' value='true' data-toggle="switch" disabled />
             </div>
           </div>
           
           <hr class='form-line'/></br>
           <h5>Emergency Contact</h5>
 
-          
-
           <!-- Emergency Contact Name -->
           <div style='display: inline-block;'>
             <label>Name</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
-            <input type='text' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
+
+            <!-- First Name -->
+            <input type='text' name='patient[]hstore[]emergencycontact[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
+
+            <!-- Last Name -->
+            <input type='text' name='patient[]hstore[]emergencycontact[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
           </div></br>
+
            <!-- Emergency Contact Number -->
           <div style='display: inline-block;'>
             <label>Contact Number</label>
-            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+            <input class='USphone'type='text' name='patient[]hstore[]emergencycontact[]number' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
           </div>
 
+          <!-- Emergency Contact Relationship -->
           <div class='dropdown' style='width: 135px;'>
             <label>Relationship</label>
-            <select name="info" class=" form-dropdown select-block mbl" style='display: inline-block'>
+            <select name="patient[]hstore[]emergencycontact[]relationship" class=" form-dropdown select-block mbl" style='display: inline-block'>
               <optgroup label="Choose Best Fit">
-                <option value="0">Friend</option>
-                <option value="1">Guardian</option>
-                <option value="2">Grandparent</option>
-                <option value="3">Sibling</option>
-                <option value="4">Spouse</option>
+                <option value="friend">Friend</option>
+                <option value="guardian">Guardian</option>
+                <option value="grandparent">Grandparent</option>
+                <option value="sibling">Sibling</option>
+                <option value="spouse">Spouse</option>
               </optgroup>
              </select>
           </div> 
@@ -166,126 +214,132 @@
           <!-- Occupation Title -->
           <div style='display: inline-block;'>
             <label>Occupation</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Title'>
+            <input type='text' name='patient[]hstore[]occupation[]title' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Title'>
           </div>
           
           <!-- Employer Name -->
           <div style='display: inline-block;'>
             <label>Employer</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Business Name'>
+            <input type='text' name='patient[]hstore[]occupation[]employername' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Business Name'>
           </div>
 
           <!-- Employer Contact Number -->
           <div style='display: inline-block;'>
             <label>Employer Phone</label>
-            <input class='USphone'type='text' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+            <input class='USphone'type='text' name='patient[]hstore[]occupation[]employernumber' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
           </div>
 
           <!-- Employer Address -->
           <div style='display: inline-block'>
             <label>Employer Address</label>
-            <input type='text' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
-            <input type='text' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
 
+            <!-- Empoloyer Street -->
+            <input type='text' name='patient[]hstore[]occupation[]employerstreet' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
+
+            <!-- Employer City-->
+            <input type='text' name='patient[]hstore[]occupation[]employercity' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
+
+            <!-- Employer State -->
             <div style='display: inline-block'>
-              <input id='state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
+              <input id='state' name='patient[]hstore[]occupation[]employerstate' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
             </div>
-            <input type='text' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
+
+
+            <input type='text' name='patient[]hstore[]occupation[]employerzip' style="display: inline; width: 75px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
           </div>
 
           <hr class='form-line'/></br>
           <h5>Insurance</h5>
 
-          <!-- Carrier Name -->
+          <!-- Insurance Carrier Name -->
           <div style='display: inline-block;'>
             <label>Primary Insurance Carrier</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Name'>
+            <input type='text' name='patient[]hstore[]insurance[]name' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Name'>
           </div>
 
           <!-- Group Number -->
           <div style='display: inline-block;'>
             <label>Group Number</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
+            <input type='text' name='patient[]hstore[]insurance[]group' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
           </div>
 
           <!-- Policy Number -->
           <div style='display: inline-block;'>
             <label>Policy Number</label>
-            <input type='text' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
+            <input type='text' name='patient[]hstore[]insurance[]policy' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
           </div>
           
           <div class='patient-contact-data'>
-            <!-- Name -->
             <div style='display: inline-block;'>
-
               <div style='display: inline-block; position: relative; top: 4px;'>
                 <label class="checkbox" for="checkbox1">
-              <input type="checkbox" onclick='sameAsAbove(this.form)' value="" id="checkboxsame" data-toggle="checkbox">Same as above</label>
+                <input type="checkbox" onclick='sameAsAbove()' value="" id="checkboxsame" data-toggle="checkbox">Primary Insurance Holder same as above</label>
               </div></br>
 
-              <input class='patient-first-name' type='text' name='firstnameinsurance' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
-              <input type='text' name='lastnameinsurance' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
+              <!-- Insurance First Name -->
+              <input class='patient-first-name' type='text' name='patient[]hstore[]insurance[]holderfirstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
+
+              <!-- Insurance Last Name -->
+              <input type='text' name='patient[]hstore[]insurance[]holderlastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
             </div>
             
-            <!-- Gender -->
-            <div style='display: inline-block;'> 
-              <label class="radio">
-              <input type="radio" name="group1" value="1" data-toggle="radio">Male</label>
+            <!-- Insurance Gender -->
+            <div style='display: inline-block; margin-left: 20px;'> 
+              <label id='gendermaleinsurance' class="radio">
+              <input type="radio" name="patient[]hstore[]insurance[]holdergender" value="male" data-toggle="radio">Male</label>
             </div>
 
             <div style='display: inline-block;'>
-              <label class="radio">
-              <input type="radio" name="group1" value="2" data-toggle="radio">Female</label>
+              <label id='genderfemaleinsurance' class="radio">
+              <input type="radio" name="patient[]hstore[]insurance[]holdergender" value="female" data-toggle="radio">Female</label>
             </div>
 
-            <!-- SSN -->
+            <!-- Insurance SSN -->
             <div style='display: inline-block;'>
               <label>Social Security #</label>
-              <input class='SSN' type='text' name='ssninsurance' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
+              <input class='SSN' type='text' name='patient[]hstore[]insurance[]holderssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
             </div>
 
-            <!-- DOB -->
+            <!-- Insurance DOB -->
             <div style='display: inline-block;'>
               <label>Date of Birth</label>
-              <input class='DOB' type='text' name='dobinsurance' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
+              <input class='DOB' type='text' name='patient[]hstore[]insurance[]holderdob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
             </div>
 
-            <!-- Age -->
+            <!-- Insurance Age -->
             <div style='display: inline-block;'>
               <label>Age</label>
-              <input type='text' name='ageinsurance' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
+              <input type='text' name='patient[]hstore[]insurance[]holderage' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
             </div>
 
             <!-- Blank Div -->
             <div style='display: inline-block; width: 50px;'>
             </div>
 
-            <!-- Primary Phone-->
+            <!-- Insurance Primary Phone-->
             <div style='display: inline-block;'>
               <label>Contact Numbers --></label>
-              <input class='USphone' type='text' name='primaryphoneinsurance' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderprimaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
 
-              <!-- Work Phone-->
-              <input class='USphone' type='text' name='workphoneinsurance' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
+              <!-- Insurance Work Phone-->
+              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderworkphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
 
-              <!-- Cell Phone-->
-              <input class='USphone' type='text' name='cellphoneinsurance' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
+              <!-- Insurance Cell Phone-->
+              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holdercellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
             </div></br>
           </div>
 
           <hr class='form-line'/></br>
-          <h5>Insurance</h5>
-
-
+          <h5>Submit Form</h5>
 
           <div style='display: inline-block; width: 550px;'>
             <i>By submitting this form you accept blah blah blah...</i>
           </div>
 
           <div style='display: inline-block; width: 200px;'>
-            <button class="btn btn-large btn-block btn-inverse">Submit</button>
+            <button class="btn btn-large btn-block btn-inverse">Submit Form</button>
           </div>
-        </form>
+        <% end %>
       </div>
 
 

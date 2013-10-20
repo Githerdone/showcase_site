@@ -51,11 +51,26 @@ div.dropdown button {
 }
 
 div.dropdown button:focus {
-  background-color: #16a085 !important;
+  background-color: #48c9b0 !important;
 }
 
 div.dropdown button:hover {
   background-color:  #48c9b0 !important;
+}
+
+#spouseInfoInner {
+  border-radius: 6px;
+  background-color: #48c9b0;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
+
+.genderspouse label span span {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+
+#spouseInfo label {
+  color: rgba(255, 255, 255, 1) !important;
 }
 
 .input-error {
