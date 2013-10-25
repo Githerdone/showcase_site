@@ -1,24 +1,28 @@
 class ProjectsController < ApplicationController
 
 	def index
+    @patients = Patient.all
+    respond_to do |format|
+      format.html
+      format.json { render json: patientlist }
+    end
 	end
 
   def create
     # if current_user
-    p params[:patient].first[:hstore].first
-    p params[:patient].first[:hstore].first[:spouse]
       user = User.find(1)
-
       patient = user.patients.create(params[:patient].first[:info]).first
-      p 'patient here' 
-      p patient
-      p '$' * 90
-      p patient.data_stores.create(params[:patient].first[:hstore]).first
-      
-      p "I am here dude"
+      data = Hash.new
+      params[:patient].first[:hstore].first.each do |key, value|
+        data[key] = value.first
+      end
+
+      patient.data_stores.create(data)      
       redirect_to projects_path
     # else
     #   redirect_to projects_path
     # end
   end
+
+
 end

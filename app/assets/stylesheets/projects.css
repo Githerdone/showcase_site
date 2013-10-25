@@ -58,6 +58,11 @@ div.dropdown button:hover {
   background-color:  #48c9b0 !important;
 }
 
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #1abc9c !important;
+}
+
 #spouseInfoInner {
   border-radius: 6px;
   background-color: #48c9b0;
@@ -147,11 +152,11 @@ div.dropdown button:hover {
 .tabrow li {
     border: 1px solid #AAA;
     background: #D1D1D1;
-    background: -o-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
-    background: -ms-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
-    background: -moz-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
-    background: -webkit-linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
-    background: linear-gradient(top, #ECECEC 50%, #D1D1D1 100%);
+    background: -o-linear-gradient(top, #E9E9E9 50%, #D1D1D1 100%);
+    background: -ms-linear-gradient(top, #E9E9E9 50%, #D1D1D1 100%);
+    background: -moz-linear-gradient(top, #E9E9E9 50%, #D1D1D1 100%);
+    background: -webkit-linear-gradient(top, #E9E9E9 50%, #D1D1D1 100%);
+    background: linear-gradient(top, #E9E9E9 50%, #D1D1D1 100%);
     display: inline-block;
     position: relative;
     z-index: 0;

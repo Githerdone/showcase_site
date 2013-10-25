@@ -2,6 +2,8 @@ var ready = function() {
   $('#tab1').css('display', 'block');
 	$(".tabrow li").click(function(e) {
 	  e.preventDefault();
+    $('#patient_list_body tr').show();
+    $('#search-query-1').val('');
     var textDisplay = $(this).find("a").attr('href');
 	  $("li").removeClass("selected");
     $('a').removeClass('selected')

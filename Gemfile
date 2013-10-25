@@ -36,6 +36,9 @@ gem 'uglifier', '>= 1.3.0'
 # Use Font-Awesome
 gem 'font-awesome-rails'
 
+# Add Angularjs gem
+gem 'angularjs-rails'
+
 # trying out the github Flat-Ui gem
 # gem 'flatui-rails'
 
@@ -51,6 +54,11 @@ gem 'alertify-rails'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 gem 'therubyracer', platforms: :ruby
 
+# # gon gem for passing rails variables to JS
+# gem 'gon'
+
+# Handlebars tryout
+gem 'handlebars_assets'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

@@ -12,6 +12,10 @@
 	padding-top: 100px;
 }
 
+#footer h4 {
+  margin-top: 60px;
+}
+
 #showcase {
 	background-color: #FFF;
 	position: relative;
@@ -32,7 +36,7 @@
 
 #footer_icons {
 	position: relative;
-	top: 180px;
+	top: 175px;
 }
 
 #footer_icons a {

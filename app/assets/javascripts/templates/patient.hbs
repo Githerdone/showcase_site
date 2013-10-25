@@ -1,0 +1,83 @@
+<!-- Name -->
+<div id='name' style='display: inline-block;'>
+  <label>First Name</label>
+
+  <!-- First -->
+  <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "firstname"]' value='{{patient.firstname}}' readonly>
+</div>
+<div id='name' style='display: inline-block;'>
+  <label>Last Name</label>
+  <!-- Last -->
+  <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "lastname"]' value='{{patient.lastname}}' readonly>
+</div>
+
+<!-- Gender -->
+<div style='display: inline-block; margin-left: 20px;'>
+  <label>Gender</label>
+
+  <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='patient.gender' value='{{patient.gender}}' readonly> 
+</div></br>
+
+<!-- SSN -->
+<div style='display: inline-block;'>
+  <label>Social Security #</label>
+  <input class='SSN' type='text' name='patient[]info[]ssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' data-value='patient.ssn' value='{{patient.ssn}}' readonly>
+</div>
+
+<!-- DOB -->
+<div style='display: inline-block;'>
+  <label>Date of Birth</label>
+  <input class='DOB' type='text' name='patient[]info[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='patient.dob' value='{{patient.dob}}' readonly>
+</div>
+
+<!-- Age -->
+<div style='display: inline-block;'>
+  <label>Age</label>
+  <input type='text' name='patient[]info[]age' style="width: 30px;" pattern='\d{1,3}' maxlength='3' data-value='patient.age' value='{{patient.age}}' readonly>
+</div>
+
+<!-- Marital Status -->
+<div style='display: inline-block;'>
+  <label>Marital Status</label>
+  <input type='text' name='patient[]info[]age' style="width: 85px;" pattern='\d{1,3}' maxlength='3' data-value='patient.maritalstatus' value='{{patient.maritalstatus}}' readonly>
+</div>
+
+{{#if info.spouse}}
+
+  <!-- Spouse Info -->
+  <div style='width: 750px;'>
+    <hr class='form-line'/></br>
+      <h6>Spouse's Information</h6>
+
+      <!-- Name -->
+      <div id='name' style='display: inline-block;'>
+        <label>Name</label>
+
+        <!-- First -->
+        <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='info.spouse.firstname' value='{{info.spouse.firstname}}' readonly>
+
+        <!-- Last -->
+        <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='info.spouse.lastname' value='{{info.spouse.lastname}}' readonly>
+      </div>
+
+      <!-- Gender -->
+      <div style='display: inline-block; margin-left: 20px;'>
+        <label>Gender</label>
+
+        <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='info.spouse.gender' value='{{info.spouse.gender}}' readonly> 
+      </div></br>
+
+      <!-- SSN -->
+      <div style='display: inline-block;'>
+        <label>Social Security #</label>
+        <input type='text' name='patient[]hstore[]spouse[]ssn' style="width: 108px;" pattern='^\d{4}$' maxlength='4' data-value='info.spouse.ssn' value='{{info.spouse.ssn}}' readonly>
+      </div>
+
+      <!-- DOB -->
+      <div style='display: inline-block;'>
+        <label>Date of Birth</label>
+        <input class='DOB' type='text' name='patient[]hstore[]spouse[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='info.spouse.dob' value='{{info.spouse.dob}}' readonly>
+      </div>
+    <hr class='form-line'/>
+  </div>
+{{/if}}
