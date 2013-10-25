@@ -75,6 +75,7 @@ var CellPhone = function(){
       if($('#textswitch div').hasClass('deactivate')){
         $('#textswitch div').removeClass('deactivate');
         $('#textswitch input').removeAttr('disabled');
+        $('#textswitch input').val('enabled');
       }else{
         return
       }
@@ -82,6 +83,7 @@ var CellPhone = function(){
       $('#textswitch div').removeClass('switch-on').addClass('switch-off');
       $('#textswitch div').addClass('deactivate');
       $('#textswitch input').attr('disabled', 'true');
+      $('#textswitch input').val('disabled');
     }
   });
 };
@@ -93,6 +95,7 @@ var Email = function(){
       if($('#emailswitch div').hasClass('deactivate')){
         $('#emailswitch div').removeClass('deactivate');
         $('#emailswitch input').removeAttr('disabled');
+        $('#emailswitch input').val('enabled');
       }else{
         return
       }
@@ -100,6 +103,7 @@ var Email = function(){
       $('#emailswitch div').removeClass('switch-on').addClass('switch-off');
       $('#emailswitch div').addClass('deactivate');
       $('#emailswitch input').attr('disabled', 'true');
+      $('#emailswitch input').val('disabled');
     }
   });
 };

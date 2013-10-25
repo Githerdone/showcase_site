@@ -6,15 +6,15 @@ class CreatePatients < ActiveRecord::Migration
       t.string :lastname
       t.string :gender
       t.string :ssn
-      t.date  :dob
+      t.string  :dob
       t.integer :age
       t.string :maritalstatus
       t.string :email
       t.string :primaryphone
       t.string :workphone
       t.string :cellphone
-      t.boolean :emailmessages
-      t.boolean :textmessages
+      t.string :emailmessages
+      t.string :textmessages
       t.timestamps
     end
   end

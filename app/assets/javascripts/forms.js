@@ -19,29 +19,44 @@ var setSelectors = function(){
       $('.tabrow li').removeClass('selected');
       $('.tabrow li a').removeClass('selected');
       $('.tab').css("display", "none");
-      $('.tabrow li').eq(2).addClass('selected')
-      $('.tabrow li').eq(2).find('a').addClass('selected')
+      $('.tabrow li').eq(2).addClass('selected');
+      $('.tabrow li').eq(2).find('a').addClass('selected');
       $('#tab3').css('display', 'block');
 
       $('#tab3 input').dblclick(function(){
         var primer = $(this).data('value')[0].toString();
         var key = $(this).data('value')[1].toString();
-        $(this).addClass('input-change').prop('readonly', false)
-        $(this).keyup(function(){
-          console.log($(this).val())
-          console.log(request[primer][key])
-          if($(this).val().toLowerCase() == request[primer][key].toLowerCase()){
-            console.log('equal')
-          }else{
-            console.log('no longer equal')
-          }
-        })
-       
+        if($(this).is(':focus')){
+          $(this).prop('readonly', false);
+          $(this).addClass('input-change')
 
+          // $(this).keyup(function(){
+          //   if($(this).val().toLowerCase() == request[primer][key].toLowerCase()){
+          //     $(this).removeClass('input-change')
+          //     if($('.input-change').length == 0){
+          //       $('#patient_profile div').fadeOut(600)
+          //     }
+          //   }else{
+          //     $(this).addClass('input-change')
+          //     $('#patient_profile div').fadeIn(600)
+          //   }
+          // });
+        }
+        $(this).blur(function(){
+          $(this).prop('readonly', true);
+          if($(this).val().toLowerCase() == request[primer][key].toLowerCase()){
+              $(this).removeClass('input-change')
+              if($('.input-change').length == 0){
+                $('#patient_profile div').fadeOut(600)
+              }
+            }else{
+              $(this).addClass('input-change')
+              $('#patient_profile div').fadeIn(600)
+            }
+        });
         
-        $('#patient_profile div').fadeIn(600)
       });
-    });
+    });  
   });
 }
 

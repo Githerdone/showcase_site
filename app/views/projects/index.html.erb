@@ -163,13 +163,13 @@
             <!-- Email Messages Switch -->
             <div id='emailswitch' style='display: inline-block; margin-right: 25px;'>
               <label>E-mail</label>
-              <input type="checkbox" name='patient[]info[]emailmessages' value='true' data-toggle="switch" disabled />
+              <input type="checkbox" name='patient[]info[]emailmessages' value='disabled' data-toggle="switch" disabled />
             </div>
 
             <!-- Text Messages Switch -->
             <div id='textswitch' style='display: inline-block'>
               <label>Text</label>
-              <input type="checkbox" name='patient[]info[]textmessages' value='true' data-toggle="switch" disabled />
+              <input type="checkbox" name='patient[]info[]textmessages' value='disabled' data-toggle="switch" disabled />
             </div>
           </div>
           
@@ -354,7 +354,7 @@
           </form>
 
 
-        <table class="table table-striped table-hover">
+        <table id='patient-list' class="table table-striped table-hover">
           <thead>
             <tr>
               <th>#</th>
