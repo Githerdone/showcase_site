@@ -17,7 +17,7 @@ gem 'cancan'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-
+gem 'rails_12factor', group: :production
 
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
@@ -38,6 +38,8 @@ gem 'font-awesome-rails'
 
 # Add Angularjs gem
 gem 'angularjs-rails'
+
+gem 'faker'
 
 # trying out the github Flat-Ui gem
 # gem 'flatui-rails'
@@ -73,7 +75,6 @@ group :doc do
 end
 
 group :development do
-	gem 'faker'
 	gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'simplecov', :require => false
@@ -90,3 +91,5 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+

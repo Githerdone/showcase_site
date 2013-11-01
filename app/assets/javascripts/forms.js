@@ -24,8 +24,19 @@ var setSelectors = function(){
       $('#tab3').css('display', 'block');
 
       $('#tab3 input').dblclick(function(){
-        var primer = $(this).data('value')[0].toString();
-        var key = $(this).data('value')[1].toString();
+        if($(this).data('value').length == 2){
+          var patient_data = request[$(this).data('value')[0].toString()][$(this).data('value')[1].toString()]
+        }else{
+   
+          var patient_data =  request.data[0][$(this).data('value')[0].toString()][$(this).data('value')[1].toString()]
+        }
+        // console.log($(this).data('value'))
+        // var primer = $(this).data('value')[0].toString();
+        // var key = [$(this).data('value')[1].toString()][$(this).data('value')[2].toString()]
+        // console.log(key)
+        // var test = $(this).data('value')[1].toString() + "." + $(this).data('value')[2].toString()
+        // console.log(test)
+        console.log(patient_data)
         if($(this).is(':focus')){
           $(this).prop('readonly', false);
           $(this).addClass('input-change')
@@ -44,7 +55,7 @@ var setSelectors = function(){
         }
         $(this).blur(function(){
           $(this).prop('readonly', true);
-          if($(this).val().toLowerCase() == request[primer][key].toLowerCase()){
+          if($(this).val().toLowerCase() == patient_data.toLowerCase()){
               $(this).removeClass('input-change')
               if($('.input-change').length == 0){
                 $('#patient_profile div').fadeOut(600)

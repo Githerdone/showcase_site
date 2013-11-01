@@ -6,7 +6,6 @@ $(document).ready(function() {
    var message;
 
   $(window).scroll(function(){
-   console.log($('#secret_wrapper').length)
     if($('#secret_wrapper').length){
       if(isScrolledIntoView('#secret_wrapper') == true){
         if(counter2 == 0){
@@ -22,10 +21,15 @@ $(document).ready(function() {
               var message_box = "<div style='" + message.color.shift() + "; display: none;'><h6>" + message.title.shift() + "</h6></div>";
               $('#side_menu').append(message_box)
               $('#side_menu').find('div').last().show().animate({ left: '+=166' }, 800).fadeIn('500').fadeOut('500').fadeIn('500');
-              $('#action_div').show().animate({ top: '+=-28%', left: '+=37%', width: '+=500px', height: '+=340px', }, 500);
+              
             }, 100);
             timeout2 = setTimeout(function(){
-              flashIt('.info_status button', 10, 'button_flash', 500)
+              $('#action_div').show().animate({ top: '+=-48%', left: '+=37%', width: '+=500px', height: '+=340px', }, 500);
+              $('#action_div h5').shuffleLetters();
+              $('#showcasetwo-maritalstatus').find('div').addClass('open')
+              flashIt('#showcasetwo-gender-male', 1, 'checked', 50)
+       
+              // flashIt('.info_status button', 10, 'button_flash', 500)
             }, 4700);
             interval2 = setInterval(function(){
               if(message.title.length > 0){
@@ -45,9 +49,11 @@ $(document).ready(function() {
           $('#laptop_window_secondary').fadeOut('1000').remove();
           $('#laptop_window_main').fadeIn('1000');
           counter2 = 0;
+          $('#showcasetwo-maritalstatus').find('div').removeClass('open')
+          $('#showcasetwo-gender-male').removeClass('checked')
           $('#comp_modal').hide();
           $('#action_div').animate({
-            top: '-=-28%', 
+            top: '-=-48%', 
             left: '-=37%', 
             width: '-=500px', 
             height: '-=340px', 
@@ -96,4 +102,8 @@ function isScrolledIntoView(elem){
   var elemBottom = elemTop + $(elem).height();
 
   return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function flashGender(){
+  $('#showcasetwo-gender-male').addClass('checked').removeClass('checked').addClass('checked')
 }

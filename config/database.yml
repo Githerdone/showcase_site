@@ -18,13 +18,13 @@ development:
 #   pool: 5
 #   timeout: 5000
 
-# production:
-#   adapter: postgresql
-#   encoding: unicode
-#   database: blog_production
-#   host: localhost
-#   pool: 5
-#   timeout: 5000
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: simplizit_production
+  host: localhost
+  pool: 5
+  timeout: 5000
 
 
 # SQLite version 3.x

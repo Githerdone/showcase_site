@@ -60,7 +60,7 @@ patients.each do |patient|
                              emergencycontact: {firstname: Faker::Name.first_name, lastname: Faker::Name.last_name, phone_number: phone_generator, relationship: rndm_relationship},
                              occupation: {title: Faker::Name.title, employername: Faker::Company.name, employerstreet: Faker::Address.street_address, employercity: Faker::Address.city, employerstate: Faker::Address.state, employerzip: zip_generator, employernumber: phone_generator}, 
                              insurance: {insurancename: rndm_insurance_company, groupnumber: insurance_number_generator, policynumber: insurance_number_generator, holderfirstname: Faker::Name.first_name,
-                                         holderlastname: Faker::Name.last_name, holderage: rndm_age, holderdob: dob_generator, holderssn: ssn_generator, holderprimaryphone: phone_generator, holderworkphone: phone_generator, holdercellphone: phone_generator})
+                                         holderlastname: Faker::Name.last_name, holdergender: rndm_gender, holderage: rndm_age, holderdob: dob_generator, holderssn: ssn_generator, holderprimaryphone: phone_generator, holderworkphone: phone_generator, holdercellphone: phone_generator})
 end
 
 

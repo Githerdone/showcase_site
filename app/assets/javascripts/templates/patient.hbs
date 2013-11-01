@@ -1,53 +1,54 @@
 {{#if patient}}
-<!-- Name -->
-<div id='name' style='display: inline-block;'>
-  <label>First Name</label>
 
-  <!-- First -->
-  <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "firstname"]' value='{{patient.firstname}}' readonly>
-</div>
-<div id='name' style='display: inline-block;'>
-  <label>Last Name</label>
-  <!-- Last -->
-  <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "lastname"]' value='{{patient.lastname}}' readonly>
-</div>
+  <!-- Name -->
+  <div id='name' style='display: inline-block;'>
+    <label>First Name</label>
 
-<!-- Gender -->
-<div style='display: inline-block; margin-left: 20px;'>
-  <label>Gender</label>
+    <!-- First -->
+    <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "firstname"]' value='{{patient.firstname}}' readonly>
+  </div>
+  <div id='name' style='display: inline-block;'>
+    <label>Last Name</label>
+    <!-- Last -->
+    <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["patient", "lastname"]' value='{{patient.lastname}}' readonly>
+  </div>
 
-  <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='patient.gender' value='{{patient.gender}}' readonly> 
-</div><br />
+  <!-- Gender -->
+  <div style='display: inline-block; margin-left: 20px;'>
+    <label>Gender</label>
 
-<!-- SSN -->
-<div style='display: inline-block;'>
-  <label>Social Security #</label>
-  <input class='SSN' type='text' name='patient[]info[]ssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' data-value='patient.ssn' value='{{patient.ssn}}' readonly>
-</div>
+    <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='["patient", "gender"]' value='{{patient.gender}}' readonly> 
+  </div><br />
 
-<!-- DOB -->
-<div style='display: inline-block;'>
-  <label>Date of Birth</label>
-  <input class='DOB' type='text' name='patient[]info[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='patient.dob' value='{{patient.dob}}' readonly>
-</div>
+  <!-- SSN -->
+  <div style='display: inline-block;'>
+    <label>Social Security #</label>
+    <input class='SSN' type='text' name='patient[]info[]ssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' data-value='["patient", "ssn"]' value='{{patient.ssn}}' readonly>
+  </div>
 
-<!-- Age -->
-<div style='display: inline-block;'>
-  <label>Age</label>
-  <input type='text' name='patient[]info[]age' style="width: 30px;" pattern='\d{1,3}' maxlength='3' data-value='patient.age' value='{{patient.age}}' readonly>
-</div>
+  <!-- DOB -->
+  <div style='display: inline-block;'>
+    <label>Date of Birth</label>
+    <input class='DOB' type='text' name='patient[]info[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='["patient", "dob"]' value='{{patient.dob}}' readonly>
+  </div>
 
-<!-- Marital Status -->
-<div style='display: inline-block;'>
-  <label>Marital Status</label>
-  <input type='text' name='patient[]info[]age' style="width: 85px;" pattern='\d{1,3}' maxlength='3' data-value='patient.maritalstatus' value='{{patient.maritalstatus}}' readonly>
-</div><br />
+  <!-- Age -->
+  <div style='display: inline-block;'>
+    <label>Age</label>
+    <input type='text' name='patient[]info[]age' style="width: 30px;" pattern='\d{1,3}' maxlength='3' data-value='["patient", "age"]' value='{{patient.age}}' readonly>
+  </div>
+
+  <!-- Marital Status -->
+  <div style='display: inline-block;'>
+    <label>Marital Status</label>
+    <input type='text' name='patient[]info[]age' style="width: 85px;" pattern='\d{1,3}' maxlength='3' data-value='["patient", "martitalstatus"]' value='{{patient.maritalstatus}}' readonly>
+  </div>
+  <hr class='form-line'/><br />
 
   {{#if info.spouse}}
 
     <!-- Spouse Info -->
     <div style='width: 750px;'>
-      <hr class='form-line'/><br />
         <h6>Spouse's Information</h6>
 
         <!-- Name -->
@@ -55,29 +56,29 @@
           <label>Name</label>
 
           <!-- First -->
-          <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='info.spouse.firstname' value='{{info.spouse.firstname}}' readonly>
+          <input id='patient-first-name' type='text' name='patient[]info[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["spouse", "firstname"]' value='{{info.spouse.firstname}}' readonly>
 
           <!-- Last -->
-          <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='info.spouse.lastname' value='{{info.spouse.lastname}}' readonly>
+          <input id='patient-last-name' type='text' name='patient[]info[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["spouse", "lastname"]' value='{{info.spouse.lastname}}' readonly>
         </div>
 
         <!-- Gender -->
         <div style='display: inline-block; margin-left: 20px;'>
           <label>Gender</label>
 
-          <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='info.spouse.gender' value='{{info.spouse.gender}}' readonly> 
+          <input type='text' name='patient[]info[]gender' style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='["spouse", "gender"]' value='{{info.spouse.gender}}' readonly> 
         </div><br />
 
         <!-- SSN -->
         <div style='display: inline-block;'>
           <label>Social Security #</label>
-          <input type='text' name='patient[]hstore[]spouse[]ssn' style="width: 108px;" pattern='^\d{4}$' maxlength='4' data-value='info.spouse.ssn' value='{{info.spouse.ssn}}' readonly>
+          <input type='text' name='patient[]hstore[]spouse[]ssn' style="width: 108px;" pattern='^\d{4}$' maxlength='4' data-value='["spouse", "ssn"]' value='{{info.spouse.ssn}}' readonly>
         </div>
 
         <!-- DOB -->
         <div style='display: inline-block;'>
           <label>Date of Birth</label>
-          <input class='DOB' type='text' name='patient[]hstore[]spouse[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='info.spouse.dob' value='{{info.spouse.dob}}' readonly>
+          <input class='DOB' type='text' name='patient[]hstore[]spouse[]dob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' data-value='["spouse", "dob"]' value='{{info.spouse.dob}}' readonly>
         </div>
       <hr class='form-line'/>
     </div><br />
@@ -89,20 +90,20 @@
     <div style='display: inline-block'>
       <label>Street Address</label>
       <!-- Street Address -->
-      <input type='text' name='patient[]hstore[]address[]street' style="display: inline; width: 300px; text-transform:capitalize;" data-value'info.address.street' value='{{info.address.street}}' readonly>
+      <input type='text' name='patient[]hstore[]address[]street' style="display: inline; width: 300px; text-transform:capitalize;" data-value='["address", "street"]' value='{{info.address.street}}' readonly>
     </div>
     
     <div style='display: inline-block'>
       <label>City</label>
       <!-- City -->
-      <input type='text' name='patient[]hstore[]address[]city' style="display: inline; width: 200px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value'info.address.city' value='{{info.address.city}}' readonly>
+      <input type='text' name='patient[]hstore[]address[]city' style="display: inline; width: 200px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["address", "city"]' value='{{info.address.city}}' readonly>
     </div>
       
     <div style='display: inline-block'>
       <label>State</label>
       <!-- State -->
       <div style='display: inline-block'>
-        <input id='state' name='patient[]hstore[]address[]state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' pattern='^[a-zA-Z]+$' maxlength='11' data-value'info.address.state' value='{{info.address.state}}' readonly/>
+        <input id='state' name='patient[]hstore[]address[]state' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' pattern='^[a-zA-Z]+$' maxlength='11' data-value='["address", "state"]' value='{{info.address.state}}' readonly/>
       </div>
     </div>
 
@@ -110,7 +111,7 @@
       <label>Zip Code</label>
 
       <!-- Zip Code -->
-      <input type='text' name='patient[]hstore[]address[]zip' style="display: inline; width: 55px;" pattern='^\d{5}$' maxlength='5' data-value'info.address.zip' value='{{info.address.zip}}' readonly>
+      <input type='text' name='patient[]hstore[]address[]zip' style="display: inline; width: 55px;" pattern='^\d{5}$' maxlength='5' data-value='["address", "zip"]' value='{{info.address.zip}}' readonly>
     </div><br />
 
   {{else}}
@@ -120,39 +121,38 @@
   <!-- Email -->
   <div style='display: inline-block;'>
     <label>Email Address</label>
-    <input id='email' type='text' name='patient[]info[]email' style="display: inline; width: 300px;" pattern='^[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+@{1}[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+\.[a-zA-Z]{2,4}$' maxlength='40' data-value='patient.email' value='{{patient.email}}' readonly>
+    <input id='email' type='text' name='patient[]info[]email' style="display: inline; width: 300px;" pattern='^[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+@{1}[0-9a-zA-Z&#34;&#38;&#39;&#92;&#33;&#36;&#42;&#45;&#61;&#94;&#96;&#124;&#126;&#35;&#37;&#43;&#47;&#63;&#95;&#123;&#125;]+\.[a-zA-Z]{2,4}$' maxlength='40' data-value='["patient", "email"]' value='{{patient.email}}' readonly>
   </div>
 
   <!-- Primary Phone-->
   <div style='display: inline-block;'>
     <label>Primary Phone</label>
-    <input class='USphone' type='text' name='patient[]info[]primaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='patient.primaryphone' value='{{patient.primaryphone}}' readonly>
+    <input class='USphone' type='text' name='patient[]info[]primaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='["patient", "primaryphone"]' value='{{patient.primaryphone}}' readonly>
   </div>
 
   <div style='display: inline-block;'>
     <label>Work Phone</label>
     <!-- Work Phone-->
-    <input class='USphone' type='text' name='patient[]info[]workphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='patient.workphone' value='{{patient.workphone}}' readonly>
+    <input class='USphone' type='text' name='patient[]info[]workphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='["patient", "workphone"]' value='{{patient.workphone}}' readonly>
   </div>
 
   <div style='display: inline-block;'>
     <label>Cell Phone</label>
     <!-- Cell Phone-->
-    <input id='cellphone-profile' class='USphone' type='text' name='patient[]info[]cellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='patient.cellphone' value='{{patient.cellphone}}' readonly>
+    <input id='cellphone-profile' class='USphone' type='text' name='patient[]info[]cellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='["patient", "cellphone"]' value='{{patient.cellphone}}' readonly>
   </div><br />
 
   <!-- Email Messages Switch -->
   <div style='display: inline-block; margin-right: 25px;'>
     <label>Gender</label>
-    <input type='text' name='patient[]info[]emailmessages' style="width: 66px; text-transform:capitalize;" data-value='patient.emailmessages' value='{{patient.emailmessages}}' readonly> 
+    <input type='text' name='patient[]info[]emailmessages' style="width: 66px; text-transform:capitalize;" data-value='["patient", "emailmessages"]' value='{{patient.emailmessages}}' readonly> 
   </div>
 
   <!-- Email Messages Switch -->
   <div style='display: inline-block; margin-right: 25px;'>
     <label>Gender</label>
-    <input type='text' name='patient[]info[]textmessages' style="width: 66px; text-transform:capitalize;" data-value='patient.textmessages' value='{{patient.textmessages}}' readonly> 
+    <input type='text' name='patient[]info[]textmessages' style="width: 66px; text-transform:capitalize;" data-value='["patient", "textmessages"]' value='{{patient.textmessages}}' readonly> 
   </div>
-
 {{else}}
 <p>There is no contact data for this patient</p>
 {{/if}}
@@ -164,159 +164,167 @@
 
   <!-- Emergency Contact Name -->
   <div style='display: inline-block;'>
-    <label>Name</label>
+    <label>First Name</label>
 
     <!-- First Name -->
-    <input type='text' name='patient[]hstore[]emergencycontact[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
+    <input type='text' name='patient[]hstore[]emergencycontact[]firstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["emergencycontact", "firstname"]' value='{{info.emergencycontact.firstname}}' readonly>
+  </div>
+
+  <div style='display: inline-block;'>
+    <label>Last Name</label>
 
     <!-- Last Name -->
-    <input type='text' name='patient[]hstore[]emergencycontact[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
+    <input type='text' name='patient[]hstore[]emergencycontact[]lastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["emergencycontact", "lastname"]' value='{{info.emergencycontact.lastname}}' readonly>
   </div><br />
 
    <!-- Emergency Contact Number -->
   <div style='display: inline-block;'>
     <label>Contact Number</label>
-    <input class='USphone'type='text' name='patient[]hstore[]emergencycontact[]number' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+    <input class='USphone'type='text' name='patient[]hstore[]emergencycontact[]number' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='["emergencycontact", "phone_number"]' value='{{info.emergencycontact.phone_number}}' readonly>
   </div>
 
   <!-- Emergency Contact Relationship -->
-  <div class='dropdown' style='width: 135px;'>
+  <div style='display: inline-block;'>
     <label>Relationship</label>
-    <select name="patient[]hstore[]emergencycontact[]relationship" class=" form-dropdown select-block mbl" style='display: inline-block'>
-      <optgroup label="Choose Best Fit">
-        <option value="friend">Friend</option>
-        <option value="guardian">Guardian</option>
-        <option value="grandparent">Grandparent</option>
-        <option value="sibling">Sibling</option>
-        <option value="spouse">Spouse</option>
-      </optgroup>
-     </select>
+    <input type='text' name="patient[]hstore[]emergencycontact[]relationship" style="width: 135px; text-transform:capitalize;" data-value='["emergencycontact", "relationship"]' value='{{info.emergencycontact.relationship}}' readonly>
+  </div><br />
+{{/if}}
+
+{{#if info.emergencycontact}}
+
+  <hr class='form-line'/><br />
+  <h5>Occupation</h5>
+
+  <!-- Occupation Title -->
+  <div style='display: inline-block;'>
+    <label>Title</label>
+    <input type='text' name='patient[]hstore[]occupation[]title' style="width: 250px; text-transform:capitalize;" maxlength='50' data-value='["occupation", "title"]' value='{{info.occupation.title}}' readonly>
+  </div><br />
+  
+  <!-- Employer Name -->
+  <div style='display: inline-block;'>
+    <label>Employer</label>
+    <input type='text' name='patient[]hstore[]occupation[]employername' style="width: 250px; text-transform:capitalize;" maxlength='50' data-value='["occupation", "employername"]' value='{{info.occupation.employername}}' readonly>
+  </div>
+
+  <!-- Employer Contact Number -->
+  <div style='display: inline-block;'>
+    <label>Phone</label>
+    <input class='USphone'type='text' name='patient[]hstore[]occupation[]employernumber' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' data-value='["occupation", "employernumber"]' value='{{info.occupation.employernumber}}' readonly>
+  </div><br />
+
+  <!-- Employer Address -->
+  <div style='display: inline-block'>
+    <label>Address</label>
+
+    <!-- Empoloyer Street -->
+    <input type='text' name='patient[]hstore[]occupation[]employerstreet' style="display: inline; width: 300px; text-transform:capitalize;" data-value='["occupation", "employerstreet"]' value='{{info.occupation.employerstreet}}' readonly>
+  </div>
+
+  <div style='display: inline-block'>
+    <label>City</label>
+    <!-- Employer City-->
+    <input type='text' name='patient[]hstore[]occupation[]employercity' style="display: inline; width: 200px; text-transform:capitalize;" data-value='["occupation", "employercity"]' value='{{info.occupation.employercity}}' readonly>
+  </div>
+
+  <div style='display: inline-block'>
+    <label>State</label>
+    <!-- Employer State -->
+    <div style='display: inline-block'>
+      <input id='state' name='patient[]hstore[]occupation[]employerstate' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' data-value='["occupation", "employerstate"]' value='{{info.occupation.employerstate}}' readonly/>
+    </div>
+  </div>
+
+  <div style='display: inline-block'>
+    <label>Zip</label>
+    <input type='text' name='patient[]hstore[]occupation[]employerzip' style="display: inline; width: 55px;" pattern='^\d{5}$' maxlength='5' data-value='["occupation", "employerzip"]' value='{{info.occupation.employerzip}}' readonly><br />
   </div>
 {{/if}}
 
-          <hr class='form-line'/><br />
-          <h5>Occupation</h5>
+{{#if info.insurance}}
+  <hr class='form-line'/><br />
+  <h5>Insurance</h5>
 
-          <!-- Occupation Title -->
-          <div style='display: inline-block;'>
-            <label>Occupation</label>
-            <input type='text' name='patient[]hstore[]occupation[]title' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Title'>
-          </div>
-          
-          <!-- Employer Name -->
-          <div style='display: inline-block;'>
-            <label>Employer</label>
-            <input type='text' name='patient[]hstore[]occupation[]employername' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Business Name'>
-          </div>
+  <!-- Insurance Carrier Name -->
+  <div style='display: inline-block;'>
+    <label>Primary Insurance Carrier</label>
+    <input type='text' name='patient[]hstore[]insurance[]name' style="width: 250px; text-transform:capitalize;" maxlength='50' data-value='["insurance", "insurancename"]' value='{{info.insurance.insurancename}}' readonly>
+  </div>
 
-          <!-- Employer Contact Number -->
-          <div style='display: inline-block;'>
-            <label>Employer Phone</label>
-            <input class='USphone'type='text' name='patient[]hstore[]occupation[]employernumber' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
-          </div>
+  <!-- Group Number -->
+  <div style='display: inline-block;'>
+    <label>Group Number</label>
+    <input type='text' name='patient[]hstore[]insurance[]group' style="width: 250px; text-transform:capitalize;" maxlength='50' data-value='["insurance", "groupnumber"]' value='{{info.insurance.groupnumber}}' readonly>
+  </div>
 
-          <!-- Employer Address -->
-          <div style='display: inline-block'>
-            <label>Employer Address</label>
-
-            <!-- Empoloyer Street -->
-            <input type='text' name='patient[]hstore[]occupation[]employerstreet' style="display: inline; width: 300px; text-transform:capitalize;" placeholder="Street Address">
-
-            <!-- Employer City-->
-            <input type='text' name='patient[]hstore[]occupation[]employercity' style="display: inline; width: 200px; text-transform:capitalize;" placeholder="City">
-
-            <!-- Employer State -->
-            <div style='display: inline-block'>
-              <input id='state' name='patient[]hstore[]occupation[]employerstate' style="text-transform: capitalize; width: 86px;" type="text" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]' maxlength='11' placeholder='State'/>
-            </div>
-
-
-            <input type='text' name='patient[]hstore[]occupation[]employerzip' style="display: inline; width: 55px;" pattern='^\d{5}$' maxlength='5' placeholder="Zip"><br />
-          </div>
-
-          <hr class='form-line'/><br />
-          <h5>Insurance</h5>
-
-          <!-- Insurance Carrier Name -->
-          <div style='display: inline-block;'>
-            <label>Primary Insurance Carrier</label>
-            <input type='text' name='patient[]hstore[]insurance[]name' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Name'>
-          </div>
-
-          <!-- Group Number -->
-          <div style='display: inline-block;'>
-            <label>Group Number</label>
-            <input type='text' name='patient[]hstore[]insurance[]group' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
-          </div>
-
-          <!-- Policy Number -->
-          <div style='display: inline-block;'>
-            <label>Policy Number</label>
-            <input type='text' name='patient[]hstore[]insurance[]policy' style="width: 250px; text-transform:capitalize;" maxlength='50' placeholder='Number'>
-          </div>
-          
-
-            <div style='display: inline-block;'>
-              <div style='display: inline-block; position: relative; top: 4px;'>
-                <label class="checkbox" for="checkbox1">
-                <input type="checkbox" onclick='sameAsAbove()' value="" id="checkboxsame" data-toggle="checkbox">Primary Insurance Holder same as above</label>
-              </div><br />
-
-              <!-- Insurance First Name -->
-              <input class='patient-first-name' type='text' name='patient[]hstore[]insurance[]holderfirstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='First'>
-
-              <!-- Insurance Last Name -->
-              <input type='text' name='patient[]hstore[]insurance[]holderlastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' placeholder='Last'>
-            </div>
-            
-            <!-- Insurance Gender -->
-            <div style='display: inline-block; margin-left: 20px;'> 
-              <label id='gendermaleinsurance' class="radio">
-              <input type="radio" name="patient[]hstore[]insurance[]holdergender" value="male" data-toggle="radio">Male</label>
-            </div>
-
-            <div style='display: inline-block;'>
-              <label id='genderfemaleinsurance' class="radio">
-              <input type="radio" name="patient[]hstore[]insurance[]holdergender" value="female" data-toggle="radio">Female</label>
-            </div>
-
-            <!-- Insurance SSN -->
-            <div style='display: inline-block;'>
-              <label>Social Security #</label>
-              <input class='SSN' type='text' name='patient[]hstore[]insurance[]holderssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
-            </div>
-
-            <!-- Insurance DOB -->
-            <div style='display: inline-block;'>
-              <label>Date of Birth</label>
-              <input class='DOB' type='text' name='patient[]hstore[]insurance[]holderdob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
-            </div>
-
-            <!-- Insurance Age -->
-            <div style='display: inline-block;'>
-              <label>Age</label>
-              <input type='text' name='patient[]hstore[]insurance[]holderage' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
-            </div>
-
-            <!-- Blank Div -->
-            <div style='display: inline-block; width: 50px;'>
-            </div>
-
-            <!-- Insurance Primary Phone-->
-            <div style='display: inline-block;'>
-              <label>Primary Phone</label>
-              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderprimaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
-            </div>
-
-            <div style='display: inline-block;'>
-              <label>Work Phone</label>
-              <!-- Insurance Work Phone-->
-              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderworkphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
-            </div>
-
-            <div style='display: inline-block;'>
-              <label>Cell Phone</label>
-              <!-- Insurance Cell Phone-->
-              <input class='USphone' type='text' name='patient[]hstore[]insurance[]holdercellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
-            </div><br />
+  <!-- Policy Number -->
+  <div style='display: inline-block;'>
+    <label>Policy Number</label>
+    <input type='text' name='patient[]hstore[]insurance[]policy' style="width: 250px; text-transform:capitalize;" maxlength='50' data-value='["insurance", "policynumber"]' value='{{info.insurance.policynumber}}' readonly>
+  </div>
   
+  <div style='display: inline-block;'>
+    <label>Insurance Holder Firstname</label>
+    <!-- Insurance First Name -->
+    <input class='patient-first-name' type='text' name='patient[]hstore[]insurance[]holderfirstname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["insurance", "holderfirstname"]' value='{{info.insurance.holderfirstname}}' readonly>
+  </div>
+
+  <div style='display: inline-block;'>
+    <label>Insurance Holder Lastname</label>
+
+    <!-- Insurance Last Name -->
+    <input type='text' name='patient[]hstore[]insurance[]holderlastname' style="width: 250px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='50' data-value='["insurance", "holderlastname"]' value='{{info.insurance.holderlastname}}' readonly>
+  </div>
+
+  <!-- Insurance Gender -->
+  <div style='display: inline-block; margin-left: 20px;'>
+    <label>Gender</label>
+
+    <input type='text' name="patient[]hstore[]insurance[]holdergender" style="width: 54px; text-transform:capitalize;" pattern='^[a-zA-Z]+$' maxlength='6' data-value='["insurance", "holdergender"]' value='{{info.insurance.holdergender}}' readonly> 
+  </div><br />
+
+  <div style='display: inline-block;'>
+    <label id='genderfemaleinsurance' class="radio">
+    <input type="radio" name="patient[]hstore[]insurance[]holdergender" value="female" data-toggle="radio">Female</label>
+  </div>
+
+  <!-- Insurance SSN -->
+  <div style='display: inline-block;'>
+    <label>Social Security #</label>
+    <input class='SSN' type='text' name='patient[]hstore[]insurance[]holderssn' style="width: 108px;" pattern='^\d{3}\-\d{2}\-\d{4}$' maxlength='11' placeholder='###-##-####'>
+  </div>
+
+  <!-- Insurance DOB -->
+  <div style='display: inline-block;'>
+    <label>Date of Birth</label>
+    <input class='DOB' type='text' name='patient[]hstore[]insurance[]holderdob' style="width: 120px;" pattern='^\d{2}\/\d{2}\/\d{4}$' maxlength='10' placeholder='MM/DD/YYYY'>
+  </div>
+
+  <!-- Insurance Age -->
+  <div style='display: inline-block;'>
+    <label>Age</label>
+    <input type='text' name='patient[]hstore[]insurance[]holderage' style="width: 30px;" pattern='\d{1,3}' maxlength='3' placeholder='##'>
+  </div>
+
+  <!-- Blank Div -->
+  <div style='display: inline-block; width: 50px;'>
+  </div>
+
+  <!-- Insurance Primary Phone-->
+  <div style='display: inline-block;'>
+    <label>Primary Phone</label>
+    <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderprimaryphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Primary Phone">
+  </div>
+
+  <div style='display: inline-block;'>
+    <label>Work Phone</label>
+    <!-- Insurance Work Phone-->
+    <input class='USphone' type='text' name='patient[]hstore[]insurance[]holderworkphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Work Phone">
+  </div>
+
+  <div style='display: inline-block;'>
+    <label>Cell Phone</label>
+    <!-- Insurance Cell Phone-->
+    <input class='USphone' type='text' name='patient[]hstore[]insurance[]holdercellphone' style="display: inline; width: 105px;" pattern='^\d{3}-\d{3}-\d{4}$' maxlength='12' placeholder="Cell Phone">
+  </div><br />
+{{/if}}
