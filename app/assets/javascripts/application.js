@@ -21,8 +21,6 @@
 //= require twitter/bootstrap
 //= require flatuipro
 //= require_tree ../../../vendor/assets/javascripts/.
-//= require angular
-//= require angular-resource
 //= require handlebars
 //= require turbolinks
 //= require_tree ./templates
