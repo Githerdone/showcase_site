@@ -4,12 +4,17 @@
 	margin-left: auto;
   margin-right: auto;
 	font-size: 20px;
-	color: #202020;
+	color: #FFF;
 	text-align: center;
-	background-image: url(/assets/laptop.png);
+	background-image: url(/assets/laptopcycle.png);
   background-size: contain;
   background-repeat: no-repeat;
 	padding-top: 118px;
+}
+
+#showcase_one_spacer {
+  padding-top: 100px;
+  background-color: rgba(122,144,187,0.71);
 }
 
 #showcase_one i {
