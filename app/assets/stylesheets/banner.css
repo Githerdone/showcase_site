@@ -43,9 +43,10 @@
 }
 
 #hero-button {
+  display: none;
   position: absolute;
- 	right: 321px;
-  top: 350px;
+ 	right: 120px;
+  top: 297px;
   background-color: #3498db;
 }
 

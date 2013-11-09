@@ -5,6 +5,7 @@
 
 html {
 	height: 3880px;
+  min-width: 1000px;
 }
 
 body {

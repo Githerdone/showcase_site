@@ -1,5 +1,5 @@
 #showcase_one {
-	width: 100%;
+	width: 1000px;
 	height: 900px;
 	margin-left: auto;
   margin-right: auto;
@@ -9,7 +9,8 @@
 	background-image: url(/assets/laptopcycle.png);
   background-size: contain;
   background-repeat: no-repeat;
-	padding-top: 118px;
+  background-position: center;
+	padding-top: 40px;
 }
 
 #showcase_one_spacer {
@@ -19,6 +20,18 @@
 
 #showcase_one i {
   font-size: 50px;
+  position: relative;
+  left: 27px;
+}
+
+#showcase_one h2 {
+  position: relative;
+  left: 27px;
+}
+
+#showcase_one p {
+  position: relative;
+  left: 27px;
 }
 
 .company_name {
