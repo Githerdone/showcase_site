@@ -10,28 +10,21 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-	padding-top: 40px;
+	padding-top: 68px;
 }
 
 #showcase_one_spacer {
-  padding-top: 100px;
+  padding-top: 121px;
   background-color: rgba(122,144,187,0.71);
+}
+
+#showcase_one_header {
+  position: relative;
+  top: -150px;
 }
 
 #showcase_one i {
   font-size: 50px;
-  position: relative;
-  left: 27px;
-}
-
-#showcase_one h2 {
-  position: relative;
-  left: 27px;
-}
-
-#showcase_one p {
-  position: relative;
-  left: 27px;
 }
 
 .company_name {
