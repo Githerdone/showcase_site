@@ -43,7 +43,7 @@
   display: inline-block;
   /*z-index: 501;*/
   left: 186px;
-  top: -4px;
+  top: -28px;
 }
 
 #laptop_window_secondary {
@@ -52,7 +52,7 @@
 	background-color: rgba(255,255,255, 0);
 	position: absolute;
 	left: 51.6%;
-	top: 650px;
+	top: 622px;
 	/*z-index: 503;*/
 }
 
